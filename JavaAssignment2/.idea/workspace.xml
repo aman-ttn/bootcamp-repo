@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b47e12a9-412f-400a-854c-b66fe50a1bcd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Xyk8xjVaeQRTz6TlVgQ2gvqDFY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Application.Question11">
+    <configuration name="Question1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question1" />
+      <module name="JavaAssignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question11" />
+      <module name="JavaAssignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question5a" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question5a" />
+      <module name="JavaAssignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question5b" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question5b" />
+      <module name="JavaAssignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question9" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question9" />
+      <module name="JavaAssignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Question11" />
+        <item itemvalue="Application.Question1" />
+        <item itemvalue="Application.Question9" />
+        <item itemvalue="Application.Question5b" />
+        <item itemvalue="Application.Question5a" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b47e12a9-412f-400a-854c-b66fe50a1bcd" name="Default Changelist" comment="" />
+      <created>1582025565203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582025565203</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="303" y="58" width="848" height="677" key="#Project_Structure" timestamp="1582048870466">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="303" y="58" width="848" height="677" key="#Project_Structure/51.27.1315.741@51.27.1315.741" timestamp="1582048870466" />
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1582115867485">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582115867485" />
+    <state width="1269" height="278" key="GridCell.Tab.0.bottom" timestamp="1582129489016">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="278" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582129489016" />
+    <state width="1269" height="278" key="GridCell.Tab.0.center" timestamp="1582129489014">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="278" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582129489014" />
+    <state width="1269" height="278" key="GridCell.Tab.0.left" timestamp="1582129489013">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="278" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582129489013" />
+    <state width="1269" height="278" key="GridCell.Tab.0.right" timestamp="1582129489015">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="278" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582129489015" />
+    <state x="364" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1582073590248">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="364" y="224" key="com.intellij.ide.util.TipDialog/51.27.1315.741@51.27.1315.741" timestamp="1582073590248" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/JavaAssignment2$Question3a.ic" NAME="Question3a Coverage Results" MODIFIED="1582106881886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>program.*</FILTER>
+    </SUITE>
+  </component>
+</project>
