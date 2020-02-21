@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8a3bc700-709c-4ee9-aeea-7a8ef4c92127" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Y2IphbxlttfPSvcAVnv34amFcZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.Question2">
+    <configuration name="Question1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Question1" />
+      <module name="MultithreadingAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Question2" />
+      <module name="MultithreadingAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Question6" />
+      <module name="MultithreadingAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Question7" />
+      <module name="MultithreadingAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Question8" />
+      <module name="MultithreadingAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Question2" />
+        <item itemvalue="Application.Question1" />
+        <item itemvalue="Application.Question6" />
+        <item itemvalue="Application.Question8" />
+        <item itemvalue="Application.Question7" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a3bc700-709c-4ee9-aeea-7a8ef4c92127" name="Default Changelist" comment="" />
+      <created>1582134446736</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582134446736</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1582201684700">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582201684700" />
+    <state x="461" y="282" width="494" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582217187386">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="461" y="282" width="494" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/51.27.1315.741@51.27.1315.741" timestamp="1582217187386" />
+    <state width="1269" height="339" key="GridCell.Tab.0.bottom" timestamp="1582262129064">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="339" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582262129064" />
+    <state width="1269" height="339" key="GridCell.Tab.0.center" timestamp="1582262129063">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="339" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582262129063" />
+    <state width="1269" height="339" key="GridCell.Tab.0.left" timestamp="1582262129063">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="339" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582262129063" />
+    <state width="1269" height="339" key="GridCell.Tab.0.right" timestamp="1582262129063">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="339" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582262129063" />
+    <state x="364" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1582257127044">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="364" y="224" key="com.intellij.ide.util.TipDialog/51.27.1315.741@51.27.1315.741" timestamp="1582257127044" />
+  </component>
+</project>
