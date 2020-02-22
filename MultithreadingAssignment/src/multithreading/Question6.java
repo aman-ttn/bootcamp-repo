@@ -1,41 +1,30 @@
+//Write a program to demonstrate sleep and join methods.
 package multithreading;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-class Odd implements Runnable{
-    @Override
-    public void run() {
-    for(int i=0;i<10;i++){
-        if(i%2!=0){
-            System.out.println("Odd numbers:"+i);
-        }
-    }
-    }
-}
-class Even implements Runnable{
-    public void run() {
-        for (int i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
-                System.out.println("Even numbers:" + i);
-            }
-        }
-    }
-}
 public class Question6 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        New ob1=new New();
+        New ob2=new New();
+        ob1.start();
 
-        Odd ob1=new Odd();
-        Even ob2=new Even();
-//        Thread t1=new Thread(ob1);
-//        Thread t2=new Thread(ob2);
-        ExecutorService pool = Executors.newFixedThreadPool(2);
+        ob1.join();
+        ob2.start();
+        ob2.join();
+    }
+}
+class New extends Thread{
+public static int counter=0;
+    public void run() {
+        for (int i = 0; i <5; i++) {
+            System.out.println("Hello");
+            System.out.println("Hi");
+            System.out.println(counter++);
 
-
-        pool.execute(ob1);
-
-        pool.execute(ob2);
-        pool.shutdown();
-
+        }
+        try {
+            sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

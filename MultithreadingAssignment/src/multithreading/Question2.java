@@ -1,30 +1,33 @@
+//Write a program to create a thread using Thread class and Runnable interface each.
 package multithreading;
-
-import java.util.Scanner;
-
-public class Question2{
-public volatile int counter=0;
-    public static void main(String[] args) {
-
-        T1 t1=new T1();
-        t1.start();
-        Scanner sc=new Scanner(System.in);
-        sc.nextLine();
-        t1.shutdown();
-    }
-}
-class T1 extends Thread{
-public boolean flag=true;
-
-    @Override
+class Demo1 implements Runnable{
     public void run() {
-        while(flag){
-
-            System.out.println("Thread is running.");
+        for (int i = 0; i <10; i++) {
+            System.out.println(i);
         }
-
-    }
-    public void shutdown(){
-        flag=false;
     }
 }
+class Demo2 extends Thread{
+    public void run(){
+        System.out.println("Hye");
+    }
+}
+class Demo3 extends Thread{
+    public void run(){
+        System.out.println("Bye");
+    }
+}
+public class Question2 {
+    public static void main(String[] args) {
+        Demo1 ob=new Demo1();
+        Thread t1=new Thread(ob);
+        Thread t2=new Thread(ob);
+        t1.start();
+        t2.start();
+        Demo2 ob2=new Demo2();
+        ob2.start();
+        Demo3 ob3=new Demo3();
+        ob3.start();
+    }
+}
+

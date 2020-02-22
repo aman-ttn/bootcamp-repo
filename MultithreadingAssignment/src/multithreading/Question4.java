@@ -1,47 +1,39 @@
+//Write a program to create a Thread pool of 2 threads where one Thread will print even numbers and other will print odd numbers.
 package multithreading;
 
-class Mythread {
-    int x, y;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
-    void add(int a, int b) {
-        System.out.println("Hye");
-        System.out.println("Bye");
-        synchronized (this) {
-            int s = a + b;
-            try {
-                Thread.sleep(400);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+class Odd implements Runnable{
+    @Override
+    public void run() {
+    for(int i=0;i<10;i++){
+        if(i%2!=0){
+            System.out.println("Odd numbers:"+i);
+        }
+    }
+    }
+}
+class Even implements Runnable{
+    synchronized public void run() {
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                System.out.println("Even numbers:" + i);
             }
-            System.out.println("Addition=" + s);
         }
     }
 }
-class Mythread1 extends Thread{
-    MyThread q;
-    Mythread1(MyThread o){
-        q=o;
-    }
-    public void run(){
-        q.add(4,5);
-    }
-}
+public class Question4 {
+    public static void main(String[] args) throws InterruptedException {
 
-class Mythread2 extends Thread{
-    MyThread q;
-    Mythread2(MyThread o){
-        q=o;
-    }
-    public void run(){
-        q.add(8,6);
-    }
-}
-public class Question4{
-    public static void main(String[] args) {
-        MyThread ob=new MyThread();
-        Thread1 t1=new Thread1(ob);
-        Thread2 t2=new Thread2(ob);
-        t1.start();
-        t2.start();
+        Odd ob1=new Odd();
+        Even ob2=new Even();
+
+        ExecutorService pool = Executors.newFixedThreadPool(2);
+        pool.execute(ob1);
+        pool.execute(ob2);
+        pool.shutdown();
+
     }
 }

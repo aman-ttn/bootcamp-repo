@@ -1,63 +1,33 @@
+//Run a task with the help of callable and store it's result in the Future.
 package multithreading;
 
+import java.util.Scanner;
+import java.util.concurrent.*;
+
 public class Question7 {
-    public static void main(String[] args) {
-        Transaction t=new Transaction();
-        MyThread1 ob1=new MyThread1(t);
-        MyThread2 ob2=new MyThread2(t);
-        ob1.start();
-        ob2.start();
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter the number for cube");
+        Integer num=scanner.nextInt();
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        Future<Integer> result = executorService.submit(new Cube(num));
+        System.out.println("The cube of "+num+"="+result.get());
     }
-}
-class Transaction{
-    int flag=0,data=0;
-    synchronized void submit(){
-        flag=1;
-        try{
-            Thread.sleep(300);
-        } catch (Exception e) {
-            e.printStackTrace();
+
+    static class Cube implements Callable<Integer> {
+        public Integer num = 0;
+
+        Cube(Integer num) {
+            this.num = num;
         }
-        data=10000;
-        System.out.println("Value submitted");
-        notify();
 
-    }
-    synchronized int withdraw(){
-        if(flag==0){
-            try{
-                System.out.println("Wait multithreading lock");
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        @Override
+        public Integer call() throws Exception {
+            return cube();
         }
-        return data;
-    }
-}
- class MyThread1 extends Thread{
-    Transaction s;
-    MyThread1(Transaction t){
-        s=t;
-    }
 
-
-      @Override
-      public void run() {
-          System.out.println(s.withdraw());
-      }
-  }
-
-
-class MyThread2 extends Thread{
-    Transaction s;
-    MyThread2(Transaction t){
-        s=t;
-    }
-
-
-    @Override
-    public void run() {
-        s.submit();
+        public Integer cube() {
+            return (num * num * num);
+        }
     }
 }

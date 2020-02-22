@@ -23,22 +23,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Application.Question2">
-    <configuration name="Question1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.Question1" />
-      <module name="MultithreadingAssignment" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="multithreading.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Question2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.Question2" />
+  <component name="RunManager" selected="Application.Question10">
+    <configuration name="Question10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Question10" />
       <module name="MultithreadingAssignment" />
       <extension name="coverage">
         <pattern>
@@ -76,8 +63,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Question8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.Question8" />
+    <configuration name="Question9" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Question9" />
+      <module name="MultithreadingAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Quetion9" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.Quetion9" />
       <module name="MultithreadingAssignment" />
       <extension name="coverage">
         <pattern>
@@ -91,11 +91,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Question2" />
-        <item itemvalue="Application.Question1" />
-        <item itemvalue="Application.Question6" />
-        <item itemvalue="Application.Question8" />
+        <item itemvalue="Application.Question10" />
         <item itemvalue="Application.Question7" />
+        <item itemvalue="Application.Quetion9" />
+        <item itemvalue="Application.Question9" />
+        <item itemvalue="Application.Question6" />
       </list>
     </recent_temporary>
   </component>
@@ -113,33 +113,53 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1582201684700">
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1582354358201">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582201684700" />
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582354358201" />
     <state x="461" y="282" width="494" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582217187386">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state x="461" y="282" width="494" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/51.27.1315.741@51.27.1315.741" timestamp="1582217187386" />
-    <state width="1269" height="339" key="GridCell.Tab.0.bottom" timestamp="1582262129064">
+    <state width="1269" height="40" key="GridCell.Tab.0.bottom" timestamp="1582358351567">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="339" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582262129064" />
-    <state width="1269" height="339" key="GridCell.Tab.0.center" timestamp="1582262129063">
+    <state width="1269" height="40" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582358351567" />
+    <state width="1269" height="40" key="GridCell.Tab.0.center" timestamp="1582358351566">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="339" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582262129063" />
-    <state width="1269" height="339" key="GridCell.Tab.0.left" timestamp="1582262129063">
+    <state width="1269" height="40" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582358351566" />
+    <state width="1269" height="40" key="GridCell.Tab.0.left" timestamp="1582358351565">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="339" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582262129063" />
-    <state width="1269" height="339" key="GridCell.Tab.0.right" timestamp="1582262129063">
+    <state width="1269" height="40" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582358351565" />
+    <state width="1269" height="40" key="GridCell.Tab.0.right" timestamp="1582358351566">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="339" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582262129063" />
+    <state width="1269" height="40" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582358351566" />
+    <state width="1269" height="219" key="GridCell.Tab.1.bottom" timestamp="1582348171976">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="219" key="GridCell.Tab.1.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582348171976" />
+    <state width="1269" height="219" key="GridCell.Tab.1.center" timestamp="1582348171975">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="219" key="GridCell.Tab.1.center/51.27.1315.741@51.27.1315.741" timestamp="1582348171975" />
+    <state width="1269" height="219" key="GridCell.Tab.1.left" timestamp="1582348171975">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="219" key="GridCell.Tab.1.left/51.27.1315.741@51.27.1315.741" timestamp="1582348171975" />
+    <state width="1269" height="219" key="GridCell.Tab.1.right" timestamp="1582348171976">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="219" key="GridCell.Tab.1.right/51.27.1315.741@51.27.1315.741" timestamp="1582348171976" />
     <state x="364" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1582257127044">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state x="364" y="224" key="com.intellij.ide.util.TipDialog/51.27.1315.741@51.27.1315.741" timestamp="1582257127044" />
+    <state x="51" y="27" width="1305" height="741" key="new project wizard" timestamp="1582284082479">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="51" y="27" width="1305" height="741" key="new project wizard/51.27.1315.741@51.27.1315.741" timestamp="1582284082479" />
   </component>
 </project>

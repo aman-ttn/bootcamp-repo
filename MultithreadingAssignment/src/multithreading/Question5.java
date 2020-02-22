@@ -1,45 +1,64 @@
+//Write a program to demonstrate wait and notify methods.
 package multithreading;
 
-class MyThread {
-    int x,y;
-    synchronized void add(int a,int b){
-        System.out.println("Hye");
-        System.out.println("Bye");
-        int s=a+b;
-        try {
-            Thread.sleep(400);
-        } catch (InterruptedException e) {
+public class Question5 {
+    public static void main(String[] args) {
+        Transaction t=new Transaction();
+        MyThread1 ob1=new MyThread1(t);
+        MyThread2 ob2=new MyThread2(t);
+        ob1.start();
+        ob2.start();
+    }
+}
+class Transaction{
+    int flag=0,data=0;
+    synchronized void submit(){
+        flag=1;
+        try{
+            Thread.sleep(300);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Addition="+s);
-    }
-}
+        data=10000;
+        System.out.println("Value submitted");
+        notify();
 
-class Thread1 extends Thread{
-    MyThread q;
-    Thread1(MyThread o){
-        q=o;
     }
-    public void run(){
-        q.add(4,5);
+    synchronized int withdraw(){
+        if(flag==0){
+            try{
+                System.out.println("Wait multithreading lock");
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return data;
     }
 }
+ class MyThread1 extends Thread{
+    Transaction s;
+    MyThread1(Transaction t){
+        s=t;
+    }
 
-class Thread2 extends Thread{
-    MyThread q;
-    Thread2(MyThread o){
-        q=o;
+
+      @Override
+      public void run() {
+          System.out.println(s.withdraw());
+      }
+  }
+
+
+class MyThread2 extends Thread{
+    Transaction s;
+    MyThread2(Transaction t){
+        s=t;
     }
-    public void run(){
-        q.add(8,6);
-    }
-}
-public class Question5{
-    public static void main(String[] args) {
-        MyThread ob=new MyThread();
-        Thread1 t1=new Thread1(ob);
-        Thread2 t2=new Thread2(ob);
-        t1.start();
-        t2.start();
+
+
+    @Override
+    public void run() {
+        s.submit();
     }
 }
