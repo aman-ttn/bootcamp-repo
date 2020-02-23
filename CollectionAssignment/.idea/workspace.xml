@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ec410d0-0cb0-4244-8059-6fa7b48ecbd2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Y7C84WD8936ZSJNDzytCd0IpTr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.Question7decreasingFrequency">
+    <configuration name="Question3FrequencyEach" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.Question3FrequencyEach" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question4SortHashMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.Question4SortHashMap" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question5SortSalary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.Question5SortSalary" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question6SortStudent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.Question6SortStudent" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question7decreasingFrequency" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.Question7decreasingFrequency" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Question7decreasingFrequency" />
+        <item itemvalue="Application.Question6SortStudent" />
+        <item itemvalue="Application.Question5SortSalary" />
+        <item itemvalue="Application.Question4SortHashMap" />
+        <item itemvalue="Application.Question3FrequencyEach" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ec410d0-0cb0-4244-8059-6fa7b48ecbd2" name="Default Changelist" comment="" />
+      <created>1582284082532</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582284082532</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1582436465487">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582436465487" />
+    <state width="1269" height="307" key="GridCell.Tab.0.bottom" timestamp="1582438490200">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="307" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582438490200" />
+    <state width="1269" height="307" key="GridCell.Tab.0.center" timestamp="1582438490199">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="307" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582438490199" />
+    <state width="1269" height="307" key="GridCell.Tab.0.left" timestamp="1582438490199">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="307" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582438490199" />
+    <state width="1269" height="307" key="GridCell.Tab.0.right" timestamp="1582438490200">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="307" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582438490200" />
+    <state x="364" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1582422660245">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="364" y="224" key="com.intellij.ide.util.TipDialog/51.27.1315.741@51.27.1315.741" timestamp="1582422660245" />
+    <state x="362" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1582436003759">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="362" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/51.27.1315.741@51.27.1315.741" timestamp="1582436003759" />
+  </component>
+</project>
