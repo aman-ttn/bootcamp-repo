@@ -3,6 +3,7 @@
 // (Expected complexity ­ O(1))
 package collection;
 public class Question8designDS {
+    private static int min;
     private static Integer stack[];
     private static int top=0;
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class Question8designDS {
         push(10);
         push(20);
         push(40);
-        push(50);
+        push(5);
         push(50);
         push(80);
         push(90);
@@ -24,7 +25,7 @@ public class Question8designDS {
         pop();
         pop();
         pop();
-        getMin();
+        System.out.println("Minimum element: "+getMin());
         System.out.println("Is empty: "+isEmpty());
         System.out.println("Is full:"+isFull());
         System.out.println("Elements-");
@@ -33,32 +34,40 @@ public class Question8designDS {
         }
     }
     public static void push(Integer value){
+
         if(isFull()){
             System.out.println("The stack is full");
         }
         else {
+
+
             stack[top]=value;
             top++;
-
-
+            if(top==1){
+                min=stack[top-1];
+            }
+            min=Math.min(stack[top-1],min);
                 }
             }
-
-
-    public static void pop(){
+        public static void pop(){
         if(isEmpty()){
             System.out.println("The stack is empty");
         }
-        else{
-
-
-            stack[top]=null;
+        else {
+            if(min==stack[top]){
+                for (int i = 0; i <top-1 ; i++) {
+                    if(min>stack[i]){
+                        min=stack[i];
+                    }
+                }
+            }
+            stack[top] = null;
             top--;
-
+        }
 
         }
 
-    }
+
     public static boolean isFull(){
         if(stack[stack.length-1]!=null){
             top=stack.length-1;
@@ -77,17 +86,7 @@ public class Question8designDS {
         }
     }
 
-    public static void getMin(){
-        if(isEmpty()){
-            System.out.println("The stack is empty to find minimum element");
-        }else{
-        int min=stack[0];
-        for (int i=0;i<top;i++) {
-            if(stack[i]<min)
-                min=stack[i];
-
-            }
-            System.out.println("The minimum element:"+min);
-        }
+    public static int getMin(){
+        return min;
     }
 }
