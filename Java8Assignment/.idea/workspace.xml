@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="471f2b71-048a-4790-bbcf-8d6e520b438a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Java8Assignment" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YFM11oQupYGAaTaX2MDW2WBgSI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.Question12FirstEven">
+    <configuration name="Question10Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question10Sum" />
+      <module name="Java8Assignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question11Average" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question11Average" />
+      <module name="Java8Assignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question12FirstEven" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question12FirstEven" />
+      <module name="Java8Assignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question4ConstructorRefrence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question4ConstructorRefrence" />
+      <module name="Java8Assignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question8Multiple" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Question8Multiple" />
+      <module name="Java8Assignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Question12FirstEven" />
+        <item itemvalue="Application.Question11Average" />
+        <item itemvalue="Application.Question10Sum" />
+        <item itemvalue="Application.Question8Multiple" />
+        <item itemvalue="Application.Question4ConstructorRefrence" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="471f2b71-048a-4790-bbcf-8d6e520b438a" name="Default Changelist" comment="" />
+      <created>1582533669606</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582533669606</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="429" y="100" width="548" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1582547766516">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="429" y="100" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582547766516" />
+    <state width="1269" height="130" key="GridCell.Tab.0.bottom" timestamp="1582564328205">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="130" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582564328205" />
+    <state width="1269" height="130" key="GridCell.Tab.0.center" timestamp="1582564328204">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="130" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582564328204" />
+    <state width="1269" height="130" key="GridCell.Tab.0.left" timestamp="1582564328204">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="130" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582564328204" />
+    <state width="1269" height="130" key="GridCell.Tab.0.right" timestamp="1582564328204">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="130" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582564328204" />
+  </component>
+</project>
