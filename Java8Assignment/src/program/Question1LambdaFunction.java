@@ -4,15 +4,19 @@
 //        (3) Concatination of 2 string                                 Parameter (String , String ) Return (String)
 //        (4) Convert a string to uppercase and return .                Parameter (String) Return (String)
 package program;
+@FunctionalInterface
 interface Great{
     public boolean greater(int a,int b);
 }
+@FunctionalInterface
 interface Incre{
     public int increNumber(int a);
 }
+@FunctionalInterface
 interface Concat{
     public String concat(String str,String strn);
 }
+@FunctionalInterface
 interface Upper{
     public String upperCase(String str);
 }

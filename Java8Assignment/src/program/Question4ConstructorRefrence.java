@@ -1,6 +1,7 @@
 //Create an Employee Class with instance variables
 // (String) name, (Integer)age, (String)city and get the instance of the Class using constructor reference
 package program;
+@FunctionalInterface
 interface ConstructRef{
     Employee returnObject();
 }

@@ -26,6 +26,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="program" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Question12FirstEven">
     <configuration name="Question10Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="program.Question10Sum" />
@@ -116,25 +121,29 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="429" y="100" width="548" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1582547766516">
+    <state x="429" y="100" width="548" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1582629536909">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state x="429" y="100" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582547766516" />
-    <state width="1269" height="130" key="GridCell.Tab.0.bottom" timestamp="1582564328205">
+    <state x="429" y="100" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582629536909" />
+    <state x="491" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582567047165">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="130" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582564328205" />
-    <state width="1269" height="130" key="GridCell.Tab.0.center" timestamp="1582564328204">
+    <state x="491" y="154" width="424" height="484" key="FileChooserDialogImpl/51.27.1315.741@51.27.1315.741" timestamp="1582567047165" />
+    <state width="1269" height="38" key="GridCell.Tab.0.bottom" timestamp="1582567061015">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="130" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582564328204" />
-    <state width="1269" height="130" key="GridCell.Tab.0.left" timestamp="1582564328204">
+    <state width="1269" height="38" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582567061015" />
+    <state width="1269" height="38" key="GridCell.Tab.0.center" timestamp="1582567061014">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="130" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582564328204" />
-    <state width="1269" height="130" key="GridCell.Tab.0.right" timestamp="1582564328204">
+    <state width="1269" height="38" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582567061014" />
+    <state width="1269" height="38" key="GridCell.Tab.0.left" timestamp="1582567061013">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="130" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582564328204" />
+    <state width="1269" height="38" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582567061013" />
+    <state width="1269" height="38" key="GridCell.Tab.0.right" timestamp="1582567061014">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state width="1269" height="38" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582567061014" />
   </component>
 </project>

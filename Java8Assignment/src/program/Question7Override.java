@@ -1,5 +1,6 @@
 // Override the default method of the interface.
 package program;
+
 interface MyInter {
     default void defaultMethod() {
         System.out.println("This is default");

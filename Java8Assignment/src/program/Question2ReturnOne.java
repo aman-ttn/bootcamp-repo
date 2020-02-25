@@ -1,5 +1,6 @@
 //Create a functional interface whose method takes 2 integers and return one integer.
 package program;
+@FunctionalInterface
 interface One{
     public int returnOne(int a,int b);
 }
