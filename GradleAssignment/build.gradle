@@ -98,5 +98,5 @@ sourceSets{
 //Answer-)
 // The previous version of my Gradle wrapper is 4.10.2 and I override it to 4.10.1
 //Command used to override-> gradle wrapper --gradle-version  4.10.1
-//Then i execute the question4 again using command-> gradle DateTask
+//Then i execute the question4 again using command-> ./gradlew DateTask
 
