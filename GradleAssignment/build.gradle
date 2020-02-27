@@ -1,0 +1,102 @@
+apply plugin: 'java'
+
+//sourceSets{
+//    main{
+//        java.srcDirs=['src']
+//    }
+//}
+
+//Assignment Gradle.
+
+//Question1
+//Add a gradle dependency and its related repository url.
+dependencies{
+    compile group: 'commons-io', name:'commons-io', version:'2.6'
+}
+
+repositories{
+    mavenCentral()
+}
+
+
+//Question2
+//Using java plugin, make changes in the manifest to make the jar executable.
+// Using java -jar JAR_NAME, the output should be printed as "Hello World"
+jar{
+    manifest{
+        attributes 'Main-class': 'Question2'
+    }
+}
+
+//Question3
+//Differentiate between the different dependency scopes:
+// compile, runtime, testCompile, testRuntime
+// using different dependencies being defined in your build.gradle.
+dependencies{
+
+
+    //compile
+    //The dependencies added to the compile configuration are required
+    // when our the source code of our project is compiled.
+    compile group: 'commons-io', name:'commons-io', version:'2.6'
+
+
+    //runtime
+    //The runtime configuration contains the dependencies which are required at runtime.
+    // This configuration contains the dependencies added to the compile configuration.
+    runtime group: 'org.apache.httpcomponents',name:'httpclient',version: '4.5.1'
+
+
+    //testCompile
+    //The testCompile configuration contains the dependencies
+    // which are required to compile the tests of our project.
+    // This configuration contains the compiled classes of our project
+    // and the dependencies added to the compile configuration.
+    testCompile group: 'junit', name:'junit' ,version: '4.8'
+    
+    //testRuntime
+    //The testRuntime configuration contains the dependencies
+    // which are required when our tests are run.
+    // This configurations contains the dependencies
+    // added to compile, runtime, and testCompile configurations.
+
+    testRuntime group: 'junit', name:'junit' ,version: '4.8'
+
+}
+
+//Question4
+//Create a custom plugin which contains a custom task which prints the current date-time.
+// Using that plugin in your project, execute that task after the jar task executes
+class DatePlugin implements Plugin<Project> {
+    void apply(Project project) {
+        project.task('DateTask') {
+            dependsOn("build")
+            doLast {
+                println ("Date: "+ new Date());
+            }
+        }
+    }
+}
+apply plugin: DatePlugin
+
+
+//Question5
+//Instead of using default source set, use src/main/javaCode1,
+// src/main/javaCode2 to be taken as code source.
+// Make sure that the JAR created contains files from both the directories
+// and not from src/main/java.
+sourceSets{
+    main{
+        java.srcDirs=['src/main/javaCode1','src/main/javaCode2']
+    }
+}
+
+
+//Questio6
+//Override the Gradle Wrapper task to install a different version of gradle.
+// Make sure that the task written in Q4 also executes with it.
+//Answer-)
+// The previous version of my Gradle wrapper is 4.10.2 and I override it to 4.10.1
+//Command used to override-> gradle wrapper --gradle-version  4.10.1
+//Then i execute the question4 again using command-> gradle DateTask
+
