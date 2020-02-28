@@ -1,10 +1,10 @@
 apply plugin: 'java'
 
-//sourceSets{
-//    main{
-//        java.srcDirs=['src']
-//    }
-//}
+sourceSets{
+    main{
+        java.srcDirs=['src']
+    }
+}
 
 //Assignment Gradle.
 
@@ -85,11 +85,11 @@ apply plugin: DatePlugin
 // src/main/javaCode2 to be taken as code source.
 // Make sure that the JAR created contains files from both the directories
 // and not from src/main/java.
-sourceSets{
-    main{
-        java.srcDirs=['src/main/javaCode1','src/main/javaCode2']
-    }
-}
+//sourceSets{
+//    main{
+//        java.srcDirs=['src/main/javaCode1','src/main/javaCode2']
+//    }
+//}
 
 
 //Questio6
@@ -100,3 +100,8 @@ sourceSets{
 //Command used to override-> gradle wrapper --gradle-version  4.10.1
 //Then i execute the question4 again using command-> ./gradlew DateTask
 
+//Question7
+//Run the gradle profile command and attach the resulting files.
+//Command used-> gradle --profile
+//See the profiling report at:
+// file:///home/aman/IdeaProjects/GradleAssignment/build/reports/profile/profile-2020-02-28-15-58-14.html
