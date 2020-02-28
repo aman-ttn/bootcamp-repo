@@ -28,9 +28,9 @@
       <recent name="collection" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Question8designDS">
-    <configuration name="Question5SortSalary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collection.Question5SortSalary" />
+  <component name="RunManager" selected="Application.Question5SortSalary">
+    <configuration name="Question2FrequencyUnique" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.Question2FrequencyUnique" />
       <module name="CollectionAssignment" />
       <extension name="coverage">
         <pattern>
@@ -42,8 +42,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Question6SortStudent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collection.Question6SortStudent" />
+    <configuration name="Question5SortSalary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.Question5SortSalary" />
       <module name="CollectionAssignment" />
       <extension name="coverage">
         <pattern>
@@ -96,11 +96,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Question5SortSalary" />
+        <item itemvalue="Application.Question2FrequencyUnique" />
         <item itemvalue="Application.Question8designDS" />
         <item itemvalue="Application.Question8designDataStructure" />
         <item itemvalue="Application.Question7decreasingFrequency" />
-        <item itemvalue="Application.Question6SortStudent" />
-        <item itemvalue="Application.Question5SortSalary" />
       </list>
     </recent_temporary>
   </component>
@@ -118,26 +118,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1582436465487">
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1582856561078">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582436465487" />
-    <state width="1269" height="318" key="GridCell.Tab.0.bottom" timestamp="1582560917413">
+    <state x="516" y="108" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/51.27.1315.741@51.27.1315.741" timestamp="1582856561078" />
+    <state width="1269" height="264" key="GridCell.Tab.0.bottom" timestamp="1582857505223">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="318" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582560917413" />
-    <state width="1269" height="318" key="GridCell.Tab.0.center" timestamp="1582560917412">
+    <state width="1269" height="264" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582857505223" />
+    <state width="1269" height="264" key="GridCell.Tab.0.center" timestamp="1582857505222">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="318" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582560917412" />
-    <state width="1269" height="318" key="GridCell.Tab.0.left" timestamp="1582560917412">
+    <state width="1269" height="264" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582857505222" />
+    <state width="1269" height="264" key="GridCell.Tab.0.left" timestamp="1582857505222">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="318" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582560917412" />
-    <state width="1269" height="318" key="GridCell.Tab.0.right" timestamp="1582560917413">
+    <state width="1269" height="264" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582857505222" />
+    <state width="1269" height="264" key="GridCell.Tab.0.right" timestamp="1582857505222">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="318" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582560917413" />
+    <state width="1269" height="264" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582857505222" />
     <state width="1269" height="219" key="GridCell.Tab.1.bottom" timestamp="1582445659874">
       <screen x="51" y="27" width="1315" height="741" />
     </state>

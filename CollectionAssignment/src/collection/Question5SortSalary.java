@@ -3,7 +3,7 @@
 package collection;
 
 import java.util.*;
-class Person implements Comparable<Person>{
+class Person {
     private String name;
     private double age;
     private double salary;
@@ -24,41 +24,25 @@ class Person implements Comparable<Person>{
         return age;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Double.compare(person.age, age) == 0 &&
-                Double.compare(person.salary, salary) == 0 &&
-                Objects.equals(name, person.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, age, salary);
-    }
-
-    @Override
-    public int compareTo(Person person) {
-        if(salary > person.salary){
-            return -1;
-        }
-        else if(salary < person.salary){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
 
 }
 
 public class Question5SortSalary {
     public static void main(String[] args) {
         List<Person> list=new ArrayList<Person>();
-        addElement(list);
-        Collections.sort(list);
+        //addElement(list);
+        list.add(new Person("John",29.3,3998.4));
+        list.add(new Person("Aman",87.3,6876.2));
+        list.add(new Person("Ankit",45,79833.3));
+        list.add(new Person("Vinay",45.3,797));
+        list.add(new Person("Anuj",77,68768.3));
+        Comparator<Person> personComparator=new Comparator<Person>() {
+            @Override
+            public int compare(Person p1, Person p2) {
+                return (int)p2.getSalary()-(int)p1.getSalary();
+            }
+        };
+        Collections.sort(list,personComparator);
         showElement(list);
         System.out.println();
 
