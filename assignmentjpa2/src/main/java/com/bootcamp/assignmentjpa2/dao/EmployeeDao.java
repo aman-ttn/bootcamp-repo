@@ -1,17 +1,11 @@
 package com.bootcamp.assignmentjpa2.dao;
 
+import com.bootcamp.assignmentjpa2.dto.EmployeeFirstNameAndLastName;
 import com.bootcamp.assignmentjpa2.entities.Employee;
-//import com.bootcamp.assignmentjpa2.entities.EmployeeFirstNameAndLastName;
-import com.bootcamp.assignmentjpa2.entities.EmployeeFirstNameAndLastName;
-import com.bootcamp.assignmentjpa2.entities.EmployeeIDFirstNameAndAge;
+import com.bootcamp.assignmentjpa2.dto.EmployeeIDFirstNameAndAge;
 import com.bootcamp.assignmentjpa2.repositories.EmployeeRepository;
-import jdk.internal.agent.Agent;
-import org.graalvm.compiler.nodes.calc.IntegerTestNode;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.domain.PageRequest;
-//import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

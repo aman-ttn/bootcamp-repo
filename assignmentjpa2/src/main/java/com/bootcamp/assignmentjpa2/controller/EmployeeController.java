@@ -1,6 +1,8 @@
 package com.bootcamp.assignmentjpa2.controller;
 
 import com.bootcamp.assignmentjpa2.dao.EmployeeDao;
+import com.bootcamp.assignmentjpa2.dto.EmployeeFirstNameAndLastName;
+import com.bootcamp.assignmentjpa2.dto.EmployeeIDFirstNameAndAge;
 import com.bootcamp.assignmentjpa2.entities.*;
 import com.bootcamp.assignmentjpa2.entities.componentMapping.Employeemapping;
 import com.bootcamp.assignmentjpa2.entities.componentMapping.Salarymapping;
@@ -15,7 +17,6 @@ import com.bootcamp.assignmentjpa2.repositories.JoinedPlayerRepository;
 import com.bootcamp.assignmentjpa2.repositories.SinglePlayerRepository;
 import com.bootcamp.assignmentjpa2.repositories.TablePlayerRepositry;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

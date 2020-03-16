@@ -1,4 +1,4 @@
-package com.bootcamp.assignmentjpa2.entities;
+package com.bootcamp.assignmentjpa2.dto;
 
 public class EmployeeFirstNameAndLastName {
     private String firstName;
