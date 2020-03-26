@@ -8,23 +8,33 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(unique = true)
     private String email;
+
     @Embedded
     private Name name;
+//    @ValidPassword
     private String password;
     private boolean isDeleted;
     private boolean isActive;
-    @ManyToMany(cascade = CascadeType.ALL)
+
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "UserRole",joinColumns = @JoinColumn(name="UserId",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "RoleId",referencedColumnName = "id"))
     private List<Role> roles;
+
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Customer customer;
+
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Seller seller;
 
 
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 
     public List<Role> getRoles() {
         return roles;
@@ -61,6 +71,21 @@ public class User {
 
     public Name getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", name=" + name +
+                ", password='" + password + '\'' +
+                ", isDeleted=" + isDeleted +
+                ", isActive=" + isActive +
+                ", roles=" + roles +
+                ", customer=" + customer +
+                ", seller=" + seller +
+                '}';
     }
 
     public void setName(Name name) {

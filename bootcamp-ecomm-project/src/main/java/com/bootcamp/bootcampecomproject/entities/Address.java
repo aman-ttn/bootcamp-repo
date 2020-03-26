@@ -2,25 +2,48 @@ package com.bootcamp.bootcampecomproject.entities;
 
 import javax.persistence.*;
 
+//@SecondaryTable(name="order",pkJoinColumns = @PrimaryKeyJoinColumn(name = "customerUserId",referencedColumnName = "id"))
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@MappedSuperclass
 @Entity
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-
-    @ManyToOne
-    @JoinColumn(name="CustomerUserId")
-    private Customer customer;
     private String city;
     private String state;
     private String country;
     private String address;
     private Integer zipCode;
+    private Label label;
+
+    @ManyToOne
+    @JoinColumn(name="CustomerUserId")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name="SellerId")
+    private Seller seller;
 
     public Label getLabel() {
         return label;
     }
+
+    public void setLabel(Label label) {
+        this.label = label;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+
+
 
     public Customer getCustomer() {
         return customer;
@@ -30,24 +53,17 @@ public class Address {
         this.customer = customer;
     }
 
-    public void setLabel(Label label) {
-        this.label = label;
-    }
 
-
-
-    Label label;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getCity() {
         return city;
+    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setCity(String city) {

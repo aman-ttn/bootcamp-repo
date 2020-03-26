@@ -2,46 +2,53 @@ package com.bootcamp.bootcampecomproject.entities;
 
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Customer  implements Serializable{
-
+public class Customer {
 
     @Id
-    @OneToOne
-    @JoinColumn(name="user_id")
-    private User user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+//    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+//    private List<Order> orders;
+
+
+
+
 
     private String number;
+
+    @MapsId
+    @OneToOne
+    @JoinColumn(name="UserId")
+    private User user;
+
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Address> addresses;
 
-    public List<Address> getAddresses() {
-        return addresses;
-    }
+//    public List<Order> getOrders() { return orders; }
+//
+//    public void setOrders(List<Order> orders) { this.orders = orders; }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
-    }
+    public Long getId() { return id; }
 
-    public String getNumber() {
-        return number;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+    public List<Address> getAddresses() { return addresses; }
+
+    public void setAddresses(List<Address> addresses) { this.addresses = addresses; }
+
+    public String getNumber() { return number; }
+
+    public void setNumber(String number) { this.number = number; }
 
     public User getUser() {
-        return user;
-    }
+        return user; }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    public void setUser(User user) { this.user = user; }
 
 
 }

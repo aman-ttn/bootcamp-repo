@@ -7,8 +7,18 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+
+
     private String Authority;
+
+    public Role(String authority) {
+        Authority = authority;
+    }
+
+    public Role() {
+    }
+
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
@@ -20,13 +30,14 @@ public class Role {
         this.users = users;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getAuthority() {
         return Authority;

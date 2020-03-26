@@ -1,9 +1,7 @@
 package com.bootcamp.bootcampecomproject.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Seller {
@@ -15,8 +13,11 @@ public class Seller {
     private String companyContact;
     private String companyName;
     @OneToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="UserId")
     private User user;
+
+    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
+    private List<Address> address;
 
     public String getGst() {
         return gst;
