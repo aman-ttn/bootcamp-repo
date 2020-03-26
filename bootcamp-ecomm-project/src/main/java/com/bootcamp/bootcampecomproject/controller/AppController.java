@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 
 @RestController
@@ -42,7 +43,6 @@ public class AppController {
     @GetMapping("/admin/home")
     public String adminHome() throws UnsupportedEncodingException {
 
-//        String str = new String(new OauthAccessToken().getToken(), "UTF-8");
         return "Admin home";
     }
 
@@ -52,7 +52,7 @@ public class AppController {
     }
 
     @PostMapping("/register/customer")
-    public String customerRegister(@RequestBody CustomerRegister customerRegister){
+    public String customerRegister(@Valid  @RequestBody CustomerRegister customerRegister){
         customerDao.doRegister(customerRegister);
         return "Customer Registered Successfully";
     }

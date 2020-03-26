@@ -2,6 +2,8 @@ package com.bootcamp.bootcampecomproject.entities;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -14,11 +16,8 @@ public class Customer {
 //    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
 //    private List<Order> orders;
 
-
-
-
-
-    private String number;
+    @Pattern(regexp="(^$|[0-9]{10})")
+    private String contactNumber;
 
     @MapsId
     @OneToOne
@@ -41,9 +40,9 @@ public class Customer {
 
     public void setAddresses(List<Address> addresses) { this.addresses = addresses; }
 
-    public String getNumber() { return number; }
+    public String getContactNumber() { return contactNumber; }
 
-    public void setNumber(String number) { this.number = number; }
+    public void setContactNumber(String number) { this.contactNumber = number; }
 
     public User getUser() {
         return user; }

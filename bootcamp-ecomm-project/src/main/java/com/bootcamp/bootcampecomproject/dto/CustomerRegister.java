@@ -1,25 +1,26 @@
 package com.bootcamp.bootcampecomproject.dto;
 
 
+import com.bootcamp.bootcampecomproject.entities.ValidPassword;
+
 public class CustomerRegister {
 
     private String email;
     private String firstName;
     private String middleName;
     private String lastName;
-    private String number;
-//    @ValidPassword
+    private String contactNumber;
+    @ValidPassword
     private String password;
 
-    public CustomerRegister() {
-    }
 
-    public CustomerRegister(String email, String firstName, String middleName, String lastName, String number, String password) {
+
+    public CustomerRegister(String email, String firstName, String middleName, String lastName, String contactNumber, String password) {
         this.email = email;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.number = number;
+        this.contactNumber = contactNumber;
         this.password = password;
     }
 
@@ -56,12 +57,12 @@ public class CustomerRegister {
     }
 
 
-    public String getNumber() {
-        return number;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getPassword() {

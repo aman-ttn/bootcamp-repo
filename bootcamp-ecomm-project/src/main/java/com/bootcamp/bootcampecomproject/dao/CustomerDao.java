@@ -32,13 +32,13 @@ public class CustomerDao {
         name.setLastName(customerRegister.getLastName());
         user.setName(name);
         user.setActive(true);
-        Customer customer=new Customer();
-        customer.setNumber(customerRegister.getNumber());
-        customer.setUser(user);
         user.setPassword(passwordEncoder.encode(customerRegister.getPassword()));
+        Customer customer=new Customer();
+        customer.setContactNumber(customerRegister.getContactNumber());
+        customer.setUser(user);
         user.setRoles(Arrays.asList(new Role("ROLE_USER")));
         customerRepository.save(customer);
-        userRepository.save(user);
+
 
     }
 }
