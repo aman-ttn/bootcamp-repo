@@ -21,8 +21,6 @@ public class CustomerDao {
     UserRepository userRepository;
 
     public void doRegister(CustomerRegister customerRegister) {
-
-
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         User user = new User();
         user.setEmail(customerRegister.getEmail());
@@ -36,9 +34,7 @@ public class CustomerDao {
         Customer customer=new Customer();
         customer.setContactNumber(customerRegister.getContactNumber());
         customer.setUser(user);
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        user.setRoles(Arrays.asList(new Role("ROLE_CUSTOMER")));
         customerRepository.save(customer);
-
-
     }
 }

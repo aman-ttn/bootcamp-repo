@@ -1,12 +1,15 @@
 package com.bootcamp.bootcampecomproject.entities;
 
+import org.springframework.data.jpa.repository.Modifying;
+
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(unique = true)
@@ -14,7 +17,7 @@ public class User {
 
     @Embedded
     private Name name;
-//    @ValidPassword
+
     private String password;
     private boolean isDeleted;
     private boolean isActive;

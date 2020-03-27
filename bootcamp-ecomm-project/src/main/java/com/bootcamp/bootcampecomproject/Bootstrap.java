@@ -39,7 +39,7 @@ public class Bootstrap implements ApplicationRunner {
             customer1.setContactNumber("9045249440");
             customer1.setUser(user1);
             user1.setPassword(passwordEncoder.encode("pass"));
-            user1.setRoles(Arrays.asList(new Role("ROLE_USER")));
+            user1.setRoles(Arrays.asList(new Role("ROLE_CUSTOMER")));
             customerRepository.save(customer1);
 
             User user2 = new User();

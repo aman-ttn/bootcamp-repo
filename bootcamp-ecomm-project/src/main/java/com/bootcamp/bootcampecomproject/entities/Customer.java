@@ -16,7 +16,7 @@ public class Customer {
 //    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
 //    private List<Order> orders;
 
-    @Pattern(regexp="(^$|[0-9]{10})")
+
     private String contactNumber;
 
     @MapsId

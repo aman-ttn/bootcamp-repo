@@ -1,7 +1,9 @@
 package com.bootcamp.bootcampecomproject.controller;
 
 import com.bootcamp.bootcampecomproject.dao.CustomerDao;
+import com.bootcamp.bootcampecomproject.dao.SellerDao;
 import com.bootcamp.bootcampecomproject.dto.CustomerRegister;
+import com.bootcamp.bootcampecomproject.dto.SellerRegister;
 import com.bootcamp.bootcampecomproject.entities.Customer;
 import com.bootcamp.bootcampecomproject.entities.OauthAccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class AppController {
 
     @Autowired
     private CustomerDao customerDao;
+
+    @Autowired
+    private SellerDao sellerDao;
 
     @GetMapping("/doLogout")
     public String logout(HttpServletRequest request){
@@ -55,5 +60,11 @@ public class AppController {
     public String customerRegister(@Valid  @RequestBody CustomerRegister customerRegister){
         customerDao.doRegister(customerRegister);
         return "Customer Registered Successfully";
+    }
+
+    @PostMapping("/register/seller")
+    public String sellerRegister(@Valid  @RequestBody SellerRegister sellerRegister){
+        sellerDao.doRegister(sellerRegister);
+        return "Seller Registered Successfully";
     }
 }

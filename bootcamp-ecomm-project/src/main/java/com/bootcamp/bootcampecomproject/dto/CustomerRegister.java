@@ -3,19 +3,22 @@ package com.bootcamp.bootcampecomproject.dto;
 
 import com.bootcamp.bootcampecomproject.entities.ValidPassword;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+
 public class CustomerRegister {
 
+    @Email
     private String email;
     private String firstName;
     private String middleName;
     private String lastName;
+    @Pattern(regexp="(^$|[0-9]{10})")
     private String contactNumber;
     @ValidPassword
     private String password;
 
-
-
-    public CustomerRegister(String email, String firstName, String middleName, String lastName, String contactNumber, String password) {
+    public CustomerRegister(@Email String email, String firstName, String middleName, String lastName, @Pattern(regexp = "(^$|[0-9]{10})") String contactNumber, String password) {
         this.email = email;
         this.firstName = firstName;
         this.middleName = middleName;
