@@ -16,11 +16,27 @@ public class Address {
     private String country;
     private String address;
     private Integer zipCode;
+    @Enumerated(EnumType.STRING)
     private Label label;
 
     @ManyToOne
     @JoinColumn(name="CustomerUserId")
     private Customer customer;
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", address='" + address + '\'' +
+                ", zipCode=" + zipCode +
+                ", label=" + label +
+                ", customer=" + customer +
+                ", seller=" + seller +
+                '}';
+    }
 
     @ManyToOne
     @JoinColumn(name="SellerId")

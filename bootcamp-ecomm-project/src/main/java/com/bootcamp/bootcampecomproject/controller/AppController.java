@@ -1,22 +1,23 @@
 package com.bootcamp.bootcampecomproject.controller;
 
+import com.bootcamp.bootcampecomproject.dao.AddressDao;
 import com.bootcamp.bootcampecomproject.dao.CustomerDao;
 import com.bootcamp.bootcampecomproject.dao.SellerDao;
 import com.bootcamp.bootcampecomproject.dto.CustomerRegister;
 import com.bootcamp.bootcampecomproject.dto.SellerRegister;
+import com.bootcamp.bootcampecomproject.entities.Address;
 import com.bootcamp.bootcampecomproject.entities.Customer;
 import com.bootcamp.bootcampecomproject.entities.OauthAccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 @RestController
 public class AppController {
@@ -28,6 +29,9 @@ public class AppController {
 
     @Autowired
     private SellerDao sellerDao;
+
+    @Autowired
+    AddressDao addressDao;
 
     @GetMapping("/doLogout")
     public String logout(HttpServletRequest request){
@@ -66,5 +70,10 @@ public class AppController {
     public String sellerRegister(@Valid  @RequestBody SellerRegister sellerRegister){
         sellerDao.doRegister(sellerRegister);
         return "Seller Registered Successfully";
+    }
+
+    @GetMapping("/address/user/{id}")
+    public Address getAddress(@PathVariable Long id){
+        return addressDao.getAddress(id);
     }
 }

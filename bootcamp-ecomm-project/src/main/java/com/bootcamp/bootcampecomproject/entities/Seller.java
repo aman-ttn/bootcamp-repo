@@ -21,6 +21,9 @@ public class Seller {
     @JoinColumn(name="UserId")
     private User user;
 
+    @OneToOne(mappedBy = "seller",cascade = CascadeType.ALL)
+    private Product product;
+
     @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
     private List<Address> address;
 

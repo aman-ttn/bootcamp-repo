@@ -13,13 +13,14 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-//    private List<Order> orders;
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private List<Orders> orders;
 
 
     private String contactNumber;
 
     @MapsId
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     @OneToOne
     @JoinColumn(name="UserId")
     private User user;
@@ -28,9 +29,12 @@ public class Customer {
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Address> addresses;
 
-//    public List<Order> getOrders() { return orders; }
-//
-//    public void setOrders(List<Order> orders) { this.orders = orders; }
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private List<ProductReview> productReview;
+
+    public List<Orders> getOrders() { return orders; }
+
+    public void setOrders(List<Orders> orders) { this.orders = orders; }
 
     public Long getId() { return id; }
 

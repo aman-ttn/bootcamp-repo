@@ -11,7 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class Bootstrap implements ApplicationRunner {
@@ -35,6 +37,17 @@ public class Bootstrap implements ApplicationRunner {
             user1.setName(name1);
             user1.setActive(true);
             Customer customer1=new Customer();
+            List<Address> addresses=new ArrayList<>();
+            Address address=new Address();
+            address.setAddress("GB Nagar");
+            address.setZipCode(201310);
+            address.setState("UP");
+            address.setCountry("India");
+            address.setCity("Noida");
+            address.setLabel(Label.home);
+            addresses.add(address);
+            address.setCustomer(customer1);
+            customer1.setAddresses(addresses);
 
             customer1.setContactNumber("9045249440");
             customer1.setUser(user1);
