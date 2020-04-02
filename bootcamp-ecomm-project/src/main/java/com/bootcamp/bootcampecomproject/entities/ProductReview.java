@@ -1,17 +1,15 @@
 package com.bootcamp.bootcampecomproject.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class ProductReview {
     @Id
     private Long id;
-    @ManyToOne
+    @MapsId
+    @OneToOne
     @JoinColumn(name="customerUserId")
-    private Customer customer;
+    private Orders orders;
     private String review;
     private Integer rating;
     @ManyToOne

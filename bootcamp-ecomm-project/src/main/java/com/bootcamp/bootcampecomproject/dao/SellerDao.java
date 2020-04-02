@@ -1,7 +1,6 @@
 package com.bootcamp.bootcampecomproject.dao;
 
-import com.bootcamp.bootcampecomproject.dto.CustomerRegister;
-import com.bootcamp.bootcampecomproject.dto.SellerRegister;
+import com.bootcamp.bootcampecomproject.dtos.SellerRegister;
 import com.bootcamp.bootcampecomproject.entities.*;
 import com.bootcamp.bootcampecomproject.repositories.SellerRepository;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;

@@ -1,4 +1,4 @@
-package com.bootcamp.bootcampecomproject.dto;
+package com.bootcamp.bootcampecomproject.dtos;
 
 
 import com.bootcamp.bootcampecomproject.entities.ValidPassword;
@@ -13,7 +13,7 @@ public class CustomerRegister {
     private String firstName;
     private String middleName;
     private String lastName;
-    @Pattern(regexp="(^$|[0-9]{10})")
+    @Pattern(regexp="(^$|[0-9]{10})",message = "Only 10 digit Contact Number is allowed")
     private String contactNumber;
     @ValidPassword
     private String password;

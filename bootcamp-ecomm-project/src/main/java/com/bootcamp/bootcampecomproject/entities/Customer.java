@@ -29,8 +29,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Address> addresses;
 
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    private List<ProductReview> productReview;
+
 
     public List<Orders> getOrders() { return orders; }
 

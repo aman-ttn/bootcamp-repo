@@ -1,4 +1,4 @@
-package com.bootcamp.bootcampecomproject.dto;
+package com.bootcamp.bootcampecomproject.dtos;
 
 import com.bootcamp.bootcampecomproject.entities.ValidPassword;
 

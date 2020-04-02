@@ -20,7 +20,7 @@ public class User {
 
     private String password;
     private boolean isDeleted;
-    private boolean isActive;
+    private boolean isActive=false;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "UserRole",joinColumns = @JoinColumn(name="UserId",referencedColumnName = "id"),
@@ -90,6 +90,8 @@ public class User {
                 ", seller=" + seller +
                 '}';
     }
+
+
 
     public void setName(Name name) {
         this.name = name;

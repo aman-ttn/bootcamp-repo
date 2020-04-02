@@ -1,6 +1,7 @@
-package com.bootcamp.bootcampecomproject;
+package com.bootcamp.bootcampecomproject.config;
 
 
+import com.bootcamp.bootcampecomproject.dao.AppUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,8 +52,10 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http
                 .authorizeRequests()
                 .antMatchers("/register/seller").anonymous()
+                .antMatchers("/registrationConfirm").anonymous()
+                .antMatchers("/email/sendEmail").anonymous()
                 .antMatchers("/address/user/{id}").anonymous()
-                .antMatchers("/register/customer").hasAnyRole("CUSTOMER")
+                .antMatchers("/register/customer").anonymous()
                 .antMatchers("/admin/home").hasAnyRole("ADMIN")
                 .antMatchers("/user/home").hasAnyRole("USER")
                 .antMatchers("/doLogout").hasAnyRole("ADMIN","USER")

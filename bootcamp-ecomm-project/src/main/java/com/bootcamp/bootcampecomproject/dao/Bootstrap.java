@@ -1,4 +1,4 @@
-package com.bootcamp.bootcampecomproject;
+package com.bootcamp.bootcampecomproject.dao;
 
 
 import com.bootcamp.bootcampecomproject.entities.*;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
 public class Bootstrap implements ApplicationRunner {
 
     @Autowired

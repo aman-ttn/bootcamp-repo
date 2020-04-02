@@ -12,6 +12,7 @@ public class Orders {
     @OneToOne(mappedBy = "orders",cascade = CascadeType.ALL)
     private OrderProduct orderProduct;
 
+
     @OneToOne(mappedBy = "orders",cascade = CascadeType.ALL)
     @ManyToOne
     @JoinColumn(name = "customerUserId")

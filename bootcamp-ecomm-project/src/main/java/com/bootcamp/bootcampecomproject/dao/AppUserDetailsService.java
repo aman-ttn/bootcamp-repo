@@ -1,4 +1,4 @@
-package com.bootcamp.bootcampecomproject;
+package com.bootcamp.bootcampecomproject.dao;
 
 import com.bootcamp.bootcampecomproject.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class AppUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String encryptedPassword = passwordEncoder.encode("pass");
         System.out.println("Trying to authenticate user ::" + username);
-        System.out.println("Encrypted Password ::"+encryptedPassword);
+        System.out.println("Encrypted Password ::" + encryptedPassword);
         UserDetails userDetails = userDao.loadUserByUsername(username);
         return userDetails;
     }

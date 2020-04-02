@@ -15,6 +15,7 @@ public class OrderProduct {
     private OrderStatus orderStatus;
     private Integer quantity;
     private Double price;
+
     private String productVariationMetadata;
 
     public Long getId() {
