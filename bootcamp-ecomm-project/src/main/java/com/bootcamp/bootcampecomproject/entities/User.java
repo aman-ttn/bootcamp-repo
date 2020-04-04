@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
@@ -28,12 +28,23 @@ public class User {
     private List<Role> roles;
 
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-    private Customer customer;
-
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Seller seller;
 
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    private Customer customer;
 
+
+
+    @OneToMany(mappedBy = "userId",cascade = CascadeType.ALL)
+    private List<Address> addresses;
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 
     public Long getId() { return id; }
 

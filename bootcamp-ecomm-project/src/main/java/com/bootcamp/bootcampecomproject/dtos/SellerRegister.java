@@ -45,7 +45,7 @@ public class SellerRegister {
         return gst;
     }
 
-    public SellerRegister(@Email String email, String password, String gst, String companyName, @Pattern(regexp = "(^$|[0-9]{10})") String contactNumber) {
+    public SellerRegister(@Email String email,  String password, String gst, String companyName, @Pattern(regexp = "(^$|[0-9]{10})") String contactNumber) {
         this.email = email;
         this.password = password;
         this.gst = gst;

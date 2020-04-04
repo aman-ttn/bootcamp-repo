@@ -2,7 +2,7 @@ package com.bootcamp.bootcampecomproject.dao;
 
 import com.bootcamp.bootcampecomproject.dtos.CustomerRegister;
 import com.bootcamp.bootcampecomproject.entities.*;
-import com.bootcamp.bootcampecomproject.exception.EmailAlreadyExistException;
+import com.bootcamp.bootcampecomproject.exception.EmailException;
 import com.bootcamp.bootcampecomproject.repositories.CustomerRepository;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;
 import com.bootcamp.bootcampecomproject.repositories.VerificationTokenRepository;
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.UUID;
 
 @Component
@@ -30,21 +31,17 @@ public class CustomerDao {
     @Autowired
     private JavaMailSender javaMailSender;
 
-
-
-
     @Autowired
     private MessageSource messageSource;
 
     @Autowired
-    VerificationTokenRepository verificationTokenRepository;
+    private VerificationTokenRepository verificationTokenRepository;
 
-
-
-    public void doRegister(CustomerRegister customerRegister, WebRequest webRequest)  {
-
+    public String doRegister(CustomerRegister customerRegister, WebRequest webRequest)  {
+        Locale locale=webRequest.getLocale();
         if(userRepository.findByEmail(customerRegister.getEmail())!=null){
-            throw new EmailAlreadyExistException("This email id already exist");
+            String messageEmailAlreadyExist=messageSource.getMessage("exception.emailAlreadyExist",null,locale);
+            throw new EmailException(messageEmailAlreadyExist);
         }
         else {
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -57,27 +54,23 @@ public class CustomerDao {
             user.setName(name);
             user.setActive(false);
             user.setPassword(passwordEncoder.encode(customerRegister.getPassword()));
+            user.setRoles(Arrays.asList(new Role("ROLE_CUSTOMER")));
+
             Customer customer = new Customer();
             customer.setContactNumber(customerRegister.getContactNumber());
             customer.setUser(user);
-            user.setRoles(Arrays.asList(new Role("ROLE_CUSTOMER")));
-
-//            SimpleMailMessage mailMessage = new SimpleMailMessage();
-//            mailMessage.setTo(customerRegister.getEmail());
-//            mailMessage.setSubject("Registration Succesfull");
-//            mailMessage.setText("Hi " + customerRegister.getFirstName() + "\nYou have registered succesfully in ecomm project.");
             customerRepository.save(customer);
-//            javaMailSender.send(mailMessage);
-//            User user = event.getUser();
+
             String token = UUID.randomUUID().toString();
-            VerificationToken verificationToken=new VerificationToken(token,user);
+            VerificationToken verificationToken=new VerificationToken(token,user,new VerificationToken().calculateExpiryDate(new VerificationToken().getEXPIRATION()));
             verificationTokenRepository.save(verificationToken);
+
+//            Code for sending the token to the customer.
 
             String recipientAddress = user.getEmail();
             String subject = "Registration Confirmation";
             String confirmationUrl
                     = webRequest.getContextPath() + "/registrationConfirm?token=" + token;
-//            String message = messageSource.getMessage("message.regSucc", null, event.getLocale());
             String message="Registration Succesfull";
 
             SimpleMailMessage email = new SimpleMailMessage();
@@ -85,6 +78,8 @@ public class CustomerDao {
             email.setSubject(subject);
             email.setText(message + "\r\n" + "http://localhost:8080" + confirmationUrl);
             javaMailSender.send(email);
+            String messageRegSucc=messageSource.getMessage("customer.registration.successfull",null,locale);
+            return messageRegSucc;
         }
     }
 }

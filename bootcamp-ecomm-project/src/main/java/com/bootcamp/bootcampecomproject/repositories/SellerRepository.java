@@ -4,4 +4,5 @@ import com.bootcamp.bootcampecomproject.entities.Seller;
 import org.springframework.data.repository.CrudRepository;
 
 public interface SellerRepository extends CrudRepository<Seller,Long> {
+    Seller findByGst(String gst);
 }

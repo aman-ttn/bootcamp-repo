@@ -24,12 +24,10 @@ public class Seller {
     @OneToOne(mappedBy = "seller",cascade = CascadeType.ALL)
     private Product product;
 
-    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
-    private List<Address> address;
-
     public String getGst() {
         return gst;
     }
+
     public Long getId() {
         return id;
     }
@@ -37,13 +35,7 @@ public class Seller {
     public void setId(Long id) {
         this.id = id;
     }
-    public List<Address> getAddress() {
-        return address;
-    }
 
-    public void setAddress(List<Address> address) {
-        this.address = address;
-    }
     public void setGst(String gst) {
         this.gst = gst;
     }
@@ -68,8 +60,6 @@ public class Seller {
         this.user = user;
     }
 
-    public void setCompanyName(String companyName) {
+    public void setCompanyName(String companyName) { this.companyName = companyName; }
 
-        this.companyName = companyName;
-    }
 }

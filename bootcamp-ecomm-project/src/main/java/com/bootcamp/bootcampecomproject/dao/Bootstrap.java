@@ -3,6 +3,7 @@ package com.bootcamp.bootcampecomproject.dao;
 
 import com.bootcamp.bootcampecomproject.entities.*;
 import com.bootcamp.bootcampecomproject.repositories.CustomerRepository;
+import com.bootcamp.bootcampecomproject.repositories.SellerRepository;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class Bootstrap implements ApplicationRunner {
 
     @Autowired
@@ -22,6 +24,9 @@ public class Bootstrap implements ApplicationRunner {
 
     @Autowired
     CustomerRepository customerRepository;
+
+    @Autowired
+    private SellerRepository sellerRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -45,19 +50,45 @@ public class Bootstrap implements ApplicationRunner {
             address.setCity("Noida");
             address.setLabel(Label.home);
             addresses.add(address);
-            address.setCustomer(customer1);
-            customer1.setAddresses(addresses);
+            address.setUserId(user1);
 
             customer1.setContactNumber("9045249440");
             customer1.setUser(user1);
             user1.setPassword(passwordEncoder.encode("pass"));
             user1.setRoles(Arrays.asList(new Role("ROLE_CUSTOMER")));
+            user1.setAddresses(addresses);
+            user1.setActive(false);
+
             customerRepository.save(customer1);
 
             User user2 = new User();
             user2.setEmail("admin");
             user2.setPassword(passwordEncoder.encode("pass"));
             user2.setRoles(Arrays.asList(new Role("ROLE_USER"),new Role("ROLE_ADMIN")));
+            user2.setActive(false);
+            Name name2=new Name();
+            name2.setFirstName("Mohan");
+            name2.setMiddleName("");
+            name2.setLastName("Sharma");
+            user2.setName(name2);
+            user2.setActive(false);
+            Seller seller=new Seller();
+            List<Address> addresses2=new ArrayList<>();
+            Address address2=new Address();
+            address2.setAddress("NCR");
+            address2.setZipCode(201310);
+            address2.setState("Delhi");
+            address2.setCountry("India");
+            address2.setCity("Delhi");
+            address2.setLabel(Label.home);
+            addresses2.add(address);
+            address.setUserId(user1);
+
+            seller.setCompanyName("TTN");
+            seller.setGst("27AAPFU0939F1ZV");
+            seller.setCompanyContact("Noida");
+            seller.setUser(user2);
+            sellerRepository.save(seller);
 
 
 

@@ -7,7 +7,7 @@ import java.util.Calendar;
 
 @Entity
 public class VerificationToken {
-    private static final int EXPIRATION = 60 * 24;
+    private static final int EXPIRATION = 60*24;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,12 +21,13 @@ public class VerificationToken {
 
     private Date expiryDate;
 
-    public VerificationToken(String token, User user) {
-        this.token=token;
-        this.user=user;
+    public VerificationToken(String token, User user, Date expiryDate) {
+        this.token = token;
+        this.user = user;
+        this.expiryDate = expiryDate;
     }
 
-    private Date calculateExpiryDate(int expiryTimeInMinutes) {
+    public Date calculateExpiryDate(int expiryTimeInMinutes) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Timestamp(cal.getTime().getTime()));
         cal.add(Calendar.MINUTE, expiryTimeInMinutes);

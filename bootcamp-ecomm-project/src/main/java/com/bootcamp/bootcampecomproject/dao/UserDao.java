@@ -22,7 +22,6 @@ public class UserDao {
     public AppUser loadUserByUsername(String username) {
         List<GrantAuthorityImpl> grantAuthorityList=new ArrayList<>();
         User user = userRepository.findByEmail(username);
-        System.out.println("--------------------"+user);
         List<Role> roles=user.getRoles();
         roles.forEach(r->{
             grantAuthorityList.add(new GrantAuthorityImpl(r.getAuthority()));

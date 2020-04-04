@@ -19,9 +19,14 @@ public class Address {
     @Enumerated(EnumType.STRING)
     private Label label;
 
+//    @ManyToOne
+//    @JoinColumn(name="CustomerUserId")
+//    private Customer customer;
+
     @ManyToOne
-    @JoinColumn(name="CustomerUserId")
-    private Customer customer;
+    @JoinColumn(name = "user_id")
+    private User userId;
+
 
     @Override
     public String toString() {
@@ -33,14 +38,22 @@ public class Address {
                 ", address='" + address + '\'' +
                 ", zipCode=" + zipCode +
                 ", label=" + label +
-                ", customer=" + customer +
-                ", seller=" + seller +
+//                ", customer=" + customer +
+//                ", seller=" + seller +
                 '}';
     }
 
-    @ManyToOne
-    @JoinColumn(name="SellerId")
-    private Seller seller;
+//    @ManyToOne
+//    @JoinColumn(name="SellerId")
+//    private Seller seller;
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
 
     public Label getLabel() {
         return label;
@@ -50,24 +63,24 @@ public class Address {
         this.label = label;
     }
 
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
-
-
-
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+//    public Seller getSeller() {
+//        return seller;
+//    }
+//
+//    public void setSeller(Seller seller) {
+//        this.seller = seller;
+//    }
+//
+//
+//
+//
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 
 
 
