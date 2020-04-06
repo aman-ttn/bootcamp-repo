@@ -59,11 +59,15 @@ public class ActivationDao {
 
     public String sendReactivationToken(String email,WebRequest webRequest){
         Locale locale=webRequest.getLocale();
-        if(userRepository.findByEmail(email)==null){
+        User user=userRepository.findByEmail(email);
+        if(user==null){
             String messageEmailDoesNotExist=messageSource.getMessage("exception.emailDoesNotExist",null,locale);
             throw new EmailException(messageEmailDoesNotExist);
         }
-        User user=userRepository.findByEmail(email);
+        else if(user.getActive()==true){
+            String messageAlreadyActive=messageSource.getMessage("exception.alreadyActive",null,locale);
+            throw new EmailException("This user account is alreday active");
+        }
         Long id=user.getId();
 
         String token = UUID.randomUUID().toString();
@@ -74,15 +78,14 @@ public class ActivationDao {
 
         String recipientAddress = email;
         String subject = "Registration Re-Confirmation";
-        String confirmationUrl
-                = webRequest.getContextPath() + "/registrationConfirm?token=" + token;
+        String confirmationUrl = webRequest.getContextPath() + "/registrationConfirm?token=" + token;
         String message="Reactivation Mail";
-
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(recipientAddress);
         simpleMailMessage.setSubject(subject);
         simpleMailMessage.setText(message + "\r\n" + "http://localhost:8080" + confirmationUrl);
         javaMailSender.send(simpleMailMessage);
-        return "Reactivation Mail Sent Succesfully";
+        String messageMailSucc=messageSource.getMessage("email.reactivation.mailSentSuccessfully",null,locale);
+        return messageMailSucc;
     }
 }

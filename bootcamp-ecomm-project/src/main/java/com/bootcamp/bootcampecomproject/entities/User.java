@@ -19,8 +19,8 @@ public class User {
     private Name name;
 
     private String password;
-    private boolean isDeleted;
-    private boolean isActive=false;
+    private Boolean isDeleted;
+    private Boolean isActive=false;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "UserRole",joinColumns = @JoinColumn(name="UserId",referencedColumnName = "id"),
@@ -33,7 +33,8 @@ public class User {
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Customer customer;
 
-
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    private Admin admin;
 
     @OneToMany(mappedBy = "userId",cascade = CascadeType.ALL)
     private List<Address> addresses;
@@ -87,6 +88,14 @@ public class User {
         return name;
     }
 
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -116,19 +125,19 @@ public class User {
         this.password = password;
     }
 
-    public boolean isDeleted() {
+    public Boolean getDeleted() {
         return isDeleted;
     }
 
-    public void setDeleted(boolean deleted) {
+    public void setDeleted(Boolean deleted) {
         isDeleted = deleted;
     }
 
-    public boolean isActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         isActive = active;
     }
 }
