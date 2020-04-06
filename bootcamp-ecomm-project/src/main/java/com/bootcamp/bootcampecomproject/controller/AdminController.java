@@ -4,10 +4,8 @@ import com.bootcamp.bootcampecomproject.dao.AdminDao;
 import com.bootcamp.bootcampecomproject.dtos.FindAllCustomerDto;
 import com.bootcamp.bootcampecomproject.dtos.FindAllSellerDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 
 import java.util.List;
 
@@ -32,5 +30,9 @@ public class AdminController {
             @RequestParam(defaultValue ="id")String sortByField
     ){
         return adminDao.getAllSeller(pageSize,pageOffset,sortByField);
+    }
+    @PutMapping("/activate/customer")
+    public String activateCustomer(@RequestParam("UserId")Long id, WebRequest webRequest){
+        return adminDao.activateCustomer(id,webRequest);
     }
 }

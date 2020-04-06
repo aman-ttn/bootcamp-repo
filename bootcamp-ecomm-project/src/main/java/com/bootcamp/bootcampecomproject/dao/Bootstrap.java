@@ -90,8 +90,6 @@ public class Bootstrap implements ApplicationRunner {
             seller.setUser(user2);
             sellerRepository.save(seller);
 
-
-
             userRepository.save(user1);
             userRepository.save(user2);
             System.out.println("Total users saved::"+userRepository.count());

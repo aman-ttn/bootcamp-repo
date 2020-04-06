@@ -32,8 +32,13 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse,HttpStatus.CONFLICT);
     }
-    @ExceptionHandler(VerificationTokenInvalid.class)
+    @ExceptionHandler(VerificationTokenInvalidException.class)
     public final ResponseEntity<Object> handleInvalidTokenException(Exception ex,WebRequest request){
+        ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse,HttpStatus.UNAUTHORIZED);
+    }
+    @ExceptionHandler(UserNotFoundException.class)
+    public final ResponseEntity<Object> userNotFoundException(Exception ex,WebRequest request){
         ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse,HttpStatus.UNAUTHORIZED);
     }

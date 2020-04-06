@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.UNAUTHORIZED)
-public class VerificationTokenInvalid extends RuntimeException {
-    public VerificationTokenInvalid(String message){
+public class VerificationTokenInvalidException extends RuntimeException {
+    public VerificationTokenInvalidException(String message){
         super(message);
     }
 }
