@@ -35,4 +35,16 @@ public class AdminController {
     public String activateCustomer(@RequestParam("UserId")Long id, WebRequest webRequest){
         return adminDao.activateCustomer(id,webRequest);
     }
+    @PutMapping("/deactivate/customer")
+    public String deactivateCustomer(@RequestParam("UserId")Long id, WebRequest webRequest){
+        return adminDao.deactivateCustomer(id,webRequest);
+    }
+    @PutMapping("/activate/seller")
+    public String activateSeller(@RequestParam("UserId")Long id, WebRequest webRequest){
+        return adminDao.activateSeller(id,webRequest);
+    }
+    @PutMapping("/deactivate/seller")
+    public String deactivateSeller(@RequestParam("UserId")Long id, WebRequest webRequest){
+        return adminDao.deactivateSeller(id,webRequest);
+    }
 }

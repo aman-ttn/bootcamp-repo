@@ -3,7 +3,7 @@ package com.bootcamp.bootcampecomproject.dao;
 import com.bootcamp.bootcampecomproject.entities.User;
 import com.bootcamp.bootcampecomproject.entities.VerificationToken;
 import com.bootcamp.bootcampecomproject.exception.EmailException;
-import com.bootcamp.bootcampecomproject.exception.VerificationTokenInvalidException;
+import com.bootcamp.bootcampecomproject.exception.TokenInvalidException;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;
 import com.bootcamp.bootcampecomproject.repositories.VerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +39,7 @@ public class ActivationDao {
         VerificationToken verificationToken = verificationTokenRepository.findByToken(token);
         if (verificationToken == null) {
             String messageTokenInvalid=messageSource.getMessage("exception.token.invalid",null,locale);
-            throw new VerificationTokenInvalidException(messageTokenInvalid);
+            throw new TokenInvalidException(messageTokenInvalid);
         }
 
         User user = verificationToken.getUser();
@@ -48,7 +48,7 @@ public class ActivationDao {
 
             String messageTokenExpired = messageSource.getMessage("exception.token.expired", null, locale);
 
-            throw new VerificationTokenInvalidException(messageTokenExpired+"  "+verificationToken.getExpiryDate().getTime()+"   "+cal.getTime().getTime());
+            throw new TokenInvalidException(messageTokenExpired+"  "+verificationToken.getExpiryDate().getTime()+"   "+cal.getTime().getTime());
         }
         user.setActive(true);
         userRepository.save(user);

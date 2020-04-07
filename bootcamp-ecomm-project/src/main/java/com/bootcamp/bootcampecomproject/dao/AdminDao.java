@@ -3,14 +3,18 @@ package com.bootcamp.bootcampecomproject.dao;
 import com.bootcamp.bootcampecomproject.dtos.FindAllCustomerDto;
 import com.bootcamp.bootcampecomproject.dtos.FindAllSellerDto;
 import com.bootcamp.bootcampecomproject.entities.Customer;
+import com.bootcamp.bootcampecomproject.entities.Seller;
 import com.bootcamp.bootcampecomproject.entities.User;
 import com.bootcamp.bootcampecomproject.exception.UserNotFoundException;
 import com.bootcamp.bootcampecomproject.repositories.CustomerRepository;
+import com.bootcamp.bootcampecomproject.repositories.SellerRepository;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
@@ -29,7 +33,13 @@ public class AdminDao {
     private CustomerRepository customerRepository;
 
     @Autowired
+    private SellerRepository sellerRepository;
+
+    @Autowired
     private MessageSource messageSource;
+
+    @Autowired
+    private JavaMailSender javaMailSender;
 
     public List<FindAllCustomerDto> getAllCustomer(String size, String offset, String field){
         Integer pageSize=Integer.parseInt(size);
@@ -63,9 +73,92 @@ public class AdminDao {
             throw new UserNotFoundException(messageCustomerNotFound);
         }
         User user=userRepository.getUserById(id);
-        user.setActive(true);
+        if(user.getActive()==false){
+            user.setActive(true);
+            String recipientAddress = user.getEmail();
+            String messageSubject=messageSource.getMessage("activation.successful.subject",null,locale);
+            String messageActivationSuccessful=messageSource.getMessage("activation.successful.message",null,locale);
+            String messageSalutation=messageSource.getMessage("activation.successful.salutation",null,locale);
+            SimpleMailMessage email = new SimpleMailMessage();
+            email.setTo(recipientAddress);
+            email.setSubject(messageSubject);
+            email.setText(messageSalutation+" "+user.getName().getFirstName() + "\r\n" + messageActivationSuccessful );
+            javaMailSender.send(email);
+        }
         userRepository.save(user);
         String messageCustomerActivationSucc=messageSource.getMessage("activation.successful",null,locale);
+        return messageCustomerActivationSucc;
+    }
+    public String deactivateCustomer(Long id, WebRequest webRequest){
+        Locale locale=webRequest.getLocale();
+        Customer customer=customerRepository.findByUserId(id);
+        if(customer==null){
+            String messageCustomerNotFound=messageSource.getMessage("exception.customerNotFound",null,locale);
+            throw new UserNotFoundException(messageCustomerNotFound);
+        }
+        User user=userRepository.getUserById(id);
+        if(user.getActive()==true){
+            user.setActive(false);
+            String recipientAddress = user.getEmail();
+            String messageSubject=messageSource.getMessage("deactivation.successful.subject",null,locale);
+            String messageActivationSuccessful=messageSource.getMessage("deactivation.successful",null,locale);
+            String messageSalutation=messageSource.getMessage("deactivation.successful.salutation",null,locale);
+            SimpleMailMessage email = new SimpleMailMessage();
+            email.setTo(recipientAddress);
+            email.setSubject(messageSubject);
+            email.setText(messageSalutation+" "+user.getName().getFirstName() + "\r\n" + messageActivationSuccessful );
+            javaMailSender.send(email);
+        }
+        userRepository.save(user);
+        String messageCustomerActivationSucc=messageSource.getMessage("deactivation.successful",null,locale);
+        return messageCustomerActivationSucc;
+    }
+    public String activateSeller(Long id, WebRequest webRequest){
+        Locale locale=webRequest.getLocale();
+        Seller seller=sellerRepository.findByUserId(id);
+        if(seller==null){
+            String messageCustomerNotFound=messageSource.getMessage("exception.sellerNotFound",null,locale);
+            throw new UserNotFoundException(messageCustomerNotFound);
+        }
+        User user=userRepository.getUserById(id);
+        if(user.getActive()==false){
+            user.setActive(true);
+            String recipientAddress = user.getEmail();
+            String messageSubject=messageSource.getMessage("activation.successful.subject",null,locale);
+            String messageActivationSuccessful=messageSource.getMessage("activation.successful.message",null,locale);
+            String messageSalutation=messageSource.getMessage("activation.successful.salutation",null,locale);
+            SimpleMailMessage email = new SimpleMailMessage();
+            email.setTo(recipientAddress);
+            email.setSubject(messageSubject);
+            email.setText(messageSalutation+" "+user.getName().getFirstName() + "\r\n" + messageActivationSuccessful );
+            javaMailSender.send(email);
+        }
+        userRepository.save(user);
+        String messageCustomerActivationSucc=messageSource.getMessage("activation.successful",null,locale);
+        return messageCustomerActivationSucc;
+    }
+    public String deactivateSeller(Long id, WebRequest webRequest){
+        Locale locale=webRequest.getLocale();
+        Seller seller=sellerRepository.findByUserId(id);
+        if(seller==null){
+            String messageCustomerNotFound=messageSource.getMessage("exception.sellerNotFound",null,locale);
+            throw new UserNotFoundException(messageCustomerNotFound);
+        }
+        User user=userRepository.getUserById(id);
+        if(user.getActive()==true){
+            user.setActive(false);
+            String recipientAddress = user.getEmail();
+            String messageSubject=messageSource.getMessage("deactivation.successful.subject",null,locale);
+            String messageActivationSuccessful=messageSource.getMessage("deactivation.successful",null,locale);
+            String messageSalutation=messageSource.getMessage("deactivation.successful.salutation",null,locale);
+            SimpleMailMessage email = new SimpleMailMessage();
+            email.setTo(recipientAddress);
+            email.setSubject(messageSubject);
+            email.setText(messageSalutation+" "+user.getName().getFirstName() + "\r\n" + messageActivationSuccessful );
+            javaMailSender.send(email);
+        }
+        userRepository.save(user);
+        String messageCustomerActivationSucc=messageSource.getMessage("deactivation.successful",null,locale);
         return messageCustomerActivationSucc;
     }
 }

@@ -33,7 +33,7 @@ public class Bootstrap implements ApplicationRunner {
         if(userRepository.count()<1){
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             User user1 = new User();
-            user1.setEmail("user");
+            user1.setEmail("amanboy192@gmail.com");
             Name name1=new Name();
             name1.setFirstName("Aman");
             name1.setMiddleName("");
@@ -62,7 +62,7 @@ public class Bootstrap implements ApplicationRunner {
             customerRepository.save(customer1);
 
             User user2 = new User();
-            user2.setEmail("admin");
+            user2.setEmail("amansaini6162@gmail.com");
             user2.setPassword(passwordEncoder.encode("pass"));
             user2.setRoles(Arrays.asList(new Role("ROLE_USER"),new Role("ROLE_ADMIN")));
             user2.setActive(false);

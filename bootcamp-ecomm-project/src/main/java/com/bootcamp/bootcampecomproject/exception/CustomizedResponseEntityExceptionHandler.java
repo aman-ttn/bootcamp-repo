@@ -32,7 +32,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse,HttpStatus.CONFLICT);
     }
-    @ExceptionHandler(VerificationTokenInvalidException.class)
+    @ExceptionHandler(TokenInvalidException.class)
     public final ResponseEntity<Object> handleInvalidTokenException(Exception ex,WebRequest request){
         ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse,HttpStatus.UNAUTHORIZED);
@@ -41,6 +41,11 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     public final ResponseEntity<Object> userNotFoundException(Exception ex,WebRequest request){
         ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse,HttpStatus.UNAUTHORIZED);
+    }
+    @ExceptionHandler(PasswordException.class)
+    public final ResponseEntity<Object> invalidPasswordException(Exception ex,WebRequest request){
+        ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse,HttpStatus.CONFLICT);
     }
 
     @Override
