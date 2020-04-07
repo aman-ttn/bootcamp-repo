@@ -1,12 +1,15 @@
 package com.bootcamp.bootcampecomproject.controller;
 
 import com.bootcamp.bootcampecomproject.dao.ForgotPasswordDao;
+import com.bootcamp.bootcampecomproject.entities.ValidPassword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
+
+import javax.validation.Valid;
 
 @RestController
 public class ForgotPasswordController {
@@ -18,7 +21,7 @@ public class ForgotPasswordController {
         return forgotPasswordDao.sendForgotPaswordToken(email,webRequest);
     }
     @PutMapping(value = "/resetPassword")
-    public String resetPassword(@RequestParam("token")String token,@RequestParam("password")String password,@RequestParam("confirmPassword") String confirmPassword,WebRequest webRequest){
+    public String resetPassword(@RequestParam("token")String token, @RequestParam("password")String password, @RequestParam("confirmPassword") String confirmPassword, WebRequest webRequest){
         return forgotPasswordDao.resetPassword(token,password,confirmPassword,webRequest);
     }
 

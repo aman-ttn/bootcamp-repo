@@ -18,6 +18,7 @@ public class User {
     @Embedded
     private Name name;
 
+
     private String password;
     private Boolean isDeleted;
     private Boolean isActive=false;

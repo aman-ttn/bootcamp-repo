@@ -20,6 +20,7 @@ import org.springframework.security.oauth2.common.exceptions.InvalidTokenExcepti
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.UUID;
@@ -84,12 +85,20 @@ public class ForgotPasswordDao {
             throw new EmailException(messageInvalidEmail);
         }
     }
-    public String resetPassword(String token,String password,String confirmPassword,WebRequest webRequest) {
+    public String resetPassword(String token, String password, String confirmPassword, WebRequest webRequest) {
 
         Locale locale = webRequest.getLocale();
+//        String regex="(?=^.{8,15}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\\s).*$";
+//        It will work without spl char
+        String reg1="((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).{8,25})";
+        Pattern pattern = Pattern.compile(reg1);
+        Matcher matcher = pattern.matcher(password);
+        Boolean isPassowrdValid=matcher.matches();
         ForgotPasswordToken forgotPasswordToken = forgotPasswordTokenRepository.findByToken(token);
         if (forgotPasswordToken != null) {
             User user = forgotPasswordToken.getUser();
+            user.setPassword(password);
+            System.out.println(user.getName().getFirstName());
             Calendar cal = Calendar.getInstance();
             if ((forgotPasswordToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
                 String messageTokenExpired = messageSource.getMessage("exception.token.expired", null, locale);
@@ -98,6 +107,10 @@ public class ForgotPasswordDao {
             else if(password.equals(confirmPassword)==false){
                 String messagePasswordDiff=messageSource.getMessage("exception.passwordNotSame",null,locale);
                 throw  new PasswordException("Password and confirm password do not match");
+            }
+            else if(isPassowrdValid==false){
+                String messagePasswordInvalid=messageSource.getMessage("exception.password.invalid",null,locale);
+                throw new PasswordException(messagePasswordInvalid);
             }
             else {
                 PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

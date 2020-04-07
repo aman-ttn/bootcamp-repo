@@ -21,7 +21,7 @@ public class ForgotPasswordToken {
 
     private Date expiryDate;
 
-    public ForgotPasswordToken(String token, User user, Date calculateExpiryDate) {
+    public ForgotPasswordToken(String token, User user, Date expiryDate) {
         this.token = token;
         this.user = user;
         this.expiryDate = expiryDate;

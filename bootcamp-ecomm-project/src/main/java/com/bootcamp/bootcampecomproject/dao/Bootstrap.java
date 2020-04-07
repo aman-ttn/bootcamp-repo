@@ -71,7 +71,7 @@ public class Bootstrap implements ApplicationRunner {
             name2.setMiddleName("");
             name2.setLastName("Sharma");
             user2.setName(name2);
-            user2.setActive(false);
+            user2.setActive(true);
             Seller seller=new Seller();
             List<Address> addresses2=new ArrayList<>();
             Address address2=new Address();
