@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 public interface AddressRepository extends CrudRepository<Address,Long> {
@@ -15,4 +16,6 @@ public interface AddressRepository extends CrudRepository<Address,Long> {
     @Query(value = "select * from address where customer_user_id = :Id",nativeQuery = true)
     public List<Address> getAddress(@Param("Id")Long id);
 
+    @Query(value = "select * from address where customer_user_id = :CustomerId and id = :Id",nativeQuery = true)
+    public Address getAddressByCustomerAndAddressId(@Param("CustomerId")Long customerId,@Param("Id")Long id);
     }
