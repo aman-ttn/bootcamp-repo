@@ -14,5 +14,10 @@ public interface ForgotPasswordTokenRepository extends CrudRepository<ForgotPass
     @Modifying
     @Transactional
     @Query(value="delete from forgot_password_token where token = :Token",nativeQuery = true)
-    public void doDelete(@Param("Token")String token);
+    public void doDeleteByToken(@Param("Token")String token);
+
+    @Modifying
+    @Transactional
+    @Query(value="delete from forgot_password_token where user_id = :Id",nativeQuery = true)
+    public void doDeleteById(@Param("Id")Long id);
 }

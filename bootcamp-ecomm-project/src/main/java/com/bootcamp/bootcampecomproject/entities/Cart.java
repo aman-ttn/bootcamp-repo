@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Cart {
     @Id
     private Long id;
+
     @MapsId
     @OneToOne
     @JoinColumn(name = "customerUserId")

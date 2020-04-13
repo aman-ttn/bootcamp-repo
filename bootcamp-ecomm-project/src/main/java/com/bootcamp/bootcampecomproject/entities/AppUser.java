@@ -11,11 +11,13 @@ public class AppUser implements UserDetails {
 
     private String username;
     private String password;
+    private boolean isAccountNonLocked;
     List<GrantAuthorityImpl> grantAuthorities;
 
-    public AppUser(String username, String password, List<GrantAuthorityImpl> grantAuthorities) {
+    public AppUser(String username, String password, boolean isAccountNonLocked, List<GrantAuthorityImpl> grantAuthorities) {
         this.username = username;
         this.password = password;
+        this.isAccountNonLocked = isAccountNonLocked;
         this.grantAuthorities = grantAuthorities;
     }
 
@@ -41,7 +43,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return isAccountNonLocked;
     }
 
     @Override

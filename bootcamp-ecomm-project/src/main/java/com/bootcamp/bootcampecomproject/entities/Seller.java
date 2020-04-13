@@ -22,6 +22,10 @@ public class Seller {
     private User user;
 
     @OneToOne(mappedBy = "seller",cascade = CascadeType.ALL)
+    private Address address;
+
+
+    @OneToOne(mappedBy = "seller",cascade = CascadeType.ALL)
     private Product product;
 
     public String getGst() {
@@ -62,4 +66,19 @@ public class Seller {
 
     public void setCompanyName(String companyName) { this.companyName = companyName; }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

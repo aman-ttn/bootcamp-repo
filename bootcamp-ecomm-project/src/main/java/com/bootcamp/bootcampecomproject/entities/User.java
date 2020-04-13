@@ -22,6 +22,8 @@ public class User {
     private String password;
     private Boolean isDeleted;
     private Boolean isActive=false;
+    private Boolean isAccountNonLocked=true;
+    private String imagePath;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "UserRole",joinColumns = @JoinColumn(name="UserId",referencedColumnName = "id"),
@@ -37,18 +39,28 @@ public class User {
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Admin admin;
 
-    @OneToMany(mappedBy = "userId",cascade = CascadeType.ALL)
-    private List<Address> addresses;
 
-    public List<Address> getAddresses() {
-        return addresses;
-    }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
-    }
+//    @OneToMany(mappedBy = "userId",cascade = CascadeType.ALL)
+//    private List<Address> addresses;
+
+//    public List<Address> getAddresses() {
+//        return addresses;
+//    }
+//
+//    public void setAddresses(List<Address> addresses) {
+//        this.addresses = addresses;
+//    }
 
     public Long getId() { return id; }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
     public void setId(Long id) { this.id = id; }
 
@@ -106,13 +118,13 @@ public class User {
                 ", password='" + password + '\'' +
                 ", isDeleted=" + isDeleted +
                 ", isActive=" + isActive +
+                ", isAccountNonLocked=" + isAccountNonLocked +
                 ", roles=" + roles +
-                ", customer=" + customer +
                 ", seller=" + seller +
+                ", customer=" + customer +
+                ", admin=" + admin +
                 '}';
     }
-
-
 
     public void setName(Name name) {
         this.name = name;
@@ -140,5 +152,13 @@ public class User {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    public Boolean getAccountNonLocked() {
+        return isAccountNonLocked;
+    }
+
+    public void setAccountNonLocked(Boolean accountNonLocked) {
+        isAccountNonLocked = accountNonLocked;
     }
 }

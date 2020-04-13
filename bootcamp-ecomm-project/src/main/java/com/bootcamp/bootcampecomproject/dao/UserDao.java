@@ -32,6 +32,7 @@ public class UserDao {
             return new AppUser(
                     user.getEmail(),
                     user.getPassword(),
+                    user.getAccountNonLocked(),
                     grantAuthorityList
             );
         } else {

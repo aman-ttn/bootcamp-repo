@@ -7,6 +7,7 @@ public class OrderProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @OneToOne
     @JoinColumn(name = "orderId")
     private Orders orders;

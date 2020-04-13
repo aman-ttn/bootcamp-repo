@@ -1,8 +1,12 @@
 package com.bootcamp.bootcampecomproject.dao;
 
+import com.bootcamp.bootcampecomproject.dtos.CustomerAddressDto;
+import com.bootcamp.bootcampecomproject.dtos.CustomerProfileDto;
 import com.bootcamp.bootcampecomproject.dtos.CustomerRegister;
+import com.bootcamp.bootcampecomproject.dtos.FindAllCustomerDto;
 import com.bootcamp.bootcampecomproject.entities.*;
 import com.bootcamp.bootcampecomproject.exception.EmailException;
+import com.bootcamp.bootcampecomproject.repositories.AddressRepository;
 import com.bootcamp.bootcampecomproject.repositories.CustomerRepository;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;
 import com.bootcamp.bootcampecomproject.repositories.VerificationTokenRepository;
@@ -15,9 +19,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.UUID;
+import javax.servlet.http.HttpServletRequest;
+import java.math.BigInteger;
+import java.security.Principal;
+import java.util.*;
 
 @Component
 public class CustomerDao {
@@ -36,6 +41,9 @@ public class CustomerDao {
 
     @Autowired
     private VerificationTokenRepository verificationTokenRepository;
+
+    @Autowired
+    private AddressRepository addressRepository;
 
     public String doRegister(CustomerRegister customerRegister, WebRequest webRequest)  {
         Locale locale=webRequest.getLocale();
@@ -81,5 +89,31 @@ public class CustomerDao {
             String messageRegSucc=messageSource.getMessage("customer.registration.successfull",null,locale);
             return messageRegSucc;
         }
+    }
+    public CustomerProfileDto getProfile(HttpServletRequest httpServletRequest){
+        Principal principal=httpServletRequest.getUserPrincipal();
+        String email=principal.getName();
+        CustomerProfileDto customerProfileDto=null;
+        List<Object[]> customers=customerRepository.getCustomer(email);
+        for (Object[] customer:customers) {
+            customerProfileDto=new CustomerProfileDto((BigInteger)customer[0],(String)customer[1],(String)customer[2],(String)customer[3],(Boolean)customer[4],(String)customer[5],(String)customer[6]);
+        }
+        return customerProfileDto;
+    }
+    public List<CustomerAddressDto> getAddress(HttpServletRequest httpServletRequest){
+        List<CustomerAddressDto> addressDtoList=new ArrayList<>();
+        Long id=getUserId(httpServletRequest);
+        List<Address> addresses=addressRepository.getAddress(id);
+        addresses.forEach(address -> {
+            CustomerAddressDto customerAddressDto=new CustomerAddressDto(address.getCity(),address.getState(),address.getCountry(),address.getAddress(),address.getLabel(),address.getZipCode());
+            addressDtoList.add(customerAddressDto);
+        });
+        return addressDtoList;
+    }
+    private Long getUserId(HttpServletRequest httpServletRequest){
+        Principal principal=httpServletRequest.getUserPrincipal();
+        String email=principal.getName();
+        User user=userRepository.findByEmail(email);
+        return user.getId();
     }
 }

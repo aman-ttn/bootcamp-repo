@@ -2,9 +2,11 @@ package com.bootcamp.bootcampecomproject.config;
 
 
 import com.bootcamp.bootcampecomproject.dao.AppUserDetailsService;
+import com.bootcamp.bootcampecomproject.filters.CustomFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,6 +17,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+
+import javax.servlet.Filter;
 
 @Configuration
 @EnableResourceServer
@@ -36,7 +41,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
-        final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        final DaoAuthenticationProvider authenticationProvider = new CustomFilter();
         authenticationProvider.setUserDetailsService(userDetailsService);
         authenticationProvider.setPasswordEncoder(bCryptPasswordEncoder());
         return authenticationProvider;
@@ -59,6 +64,9 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .antMatchers("/register/customer").anonymous()
                 .antMatchers("/forgotPassword").anonymous()
                 .antMatchers("/resetPassword").anonymous()
+                .antMatchers("/uploadImage").hasAnyRole("CUSTOMER","SELLER")
+                .antMatchers("/customer/profile").hasAnyRole("CUSTOMER")
+                .antMatchers("/customer/address").hasAnyRole("CUSTOMER")
                 .antMatchers("/admin/customers").hasAnyRole("ADMIN")
                 .antMatchers("/admin/sellers").hasAnyRole("ADMIN")
                 .antMatchers("/admin/activate/customer").hasAnyRole("ADMIN")
@@ -73,5 +81,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .csrf().disable();
+                ;
     }
+
 }

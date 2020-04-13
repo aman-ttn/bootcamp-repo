@@ -12,4 +12,7 @@ public interface AddressRepository extends CrudRepository<Address,Long> {
     @Query(value = "select ad.id, ad.address, ad.city, ad.country, ad.state, ad.zip_code from address ad where ad.customer_user_id = :id",nativeQuery = true)
     public List<Object[]> findAddressById(@Param("id") Long id);
 
+    @Query(value = "select * from address where customer_user_id = :Id",nativeQuery = true)
+    public List<Address> getAddress(@Param("Id")Long id);
+
     }

@@ -1,6 +1,8 @@
 package com.bootcamp.bootcampecomproject.dao;
 
 import com.bootcamp.bootcampecomproject.dao.UserDao;
+import com.bootcamp.bootcampecomproject.entities.User;
+import com.bootcamp.bootcampecomproject.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -8,8 +10,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Service
 public class AppUserDetailsService implements UserDetailsService {
+
+    @Autowired
+    private LoginAttemptService loginAttemptService;
+
+    @Autowired
+    private HttpServletRequest request;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -17,12 +27,28 @@ public class AppUserDetailsService implements UserDetailsService {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        String ip = getClientIP();
+//        if (loginAttemptService.isBlocked(ip)) {
+//            throw new RuntimeException("blocked");
+//        }
+//        User user = userRepository.findByEmail(username);
+//        if (user == null) throw new UsernameNotFoundException("You are not registered yet. Please register first!");
         String encryptedPassword = passwordEncoder.encode("pass");
         System.out.println("Trying to authenticate user ::" + username);
         System.out.println("Encrypted Password ::" + encryptedPassword);
         UserDetails userDetails = userDao.loadUserByUsername(username);
         return userDetails;
     }
+//    private String getClientIP() {
+//        String xfHeader = request.getHeader("X-Forwarded-For");
+//        if (xfHeader == null){
+//            return request.getRemoteAddr();
+//        }
+//        return xfHeader.split(",")[0];
+//    }
 }

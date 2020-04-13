@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
+import java.security.Principal;
 
 @RestController
 public class AppController {
@@ -29,12 +30,15 @@ public class AppController {
     @GetMapping("/doLogout")
     public String logout(HttpServletRequest request){
         String authHeader = request.getHeader("Authorization");
+        String name="";
         if (authHeader != null) {
             String tokenValue = authHeader.replace("Bearer", "").trim();
             OAuth2AccessToken accessToken = tokenStore.readAccessToken(tokenValue);
+            Principal principal = request.getUserPrincipal();
+            name=principal.getName();
             tokenStore.removeAccessToken(accessToken);
         }
-        return "Logged out successfully";
+        return ("Hi , "+name+" You Logged out successfully");
     }
 
     @GetMapping("/")

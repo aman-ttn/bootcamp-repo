@@ -3,24 +3,20 @@ package com.bootcamp.bootcampecomproject.dao;
 import com.bootcamp.bootcampecomproject.entities.ForgotPasswordToken;
 import com.bootcamp.bootcampecomproject.entities.User;
 import com.bootcamp.bootcampecomproject.entities.ValidPassword;
-import com.bootcamp.bootcampecomproject.entities.VerificationToken;
 import com.bootcamp.bootcampecomproject.exception.EmailException;
 import com.bootcamp.bootcampecomproject.exception.PasswordException;
 import com.bootcamp.bootcampecomproject.exception.TokenInvalidException;
 import com.bootcamp.bootcampecomproject.repositories.ForgotPasswordTokenRepository;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;
-import jdk.vm.ci.meta.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
-import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.UUID;
@@ -60,6 +56,7 @@ public class ForgotPasswordDao {
                 String messageAccountInactive = messageSource.getMessage("exception.userInactive", null, locale);
                 throw new EmailException(messageAccountInactive);
             } else {
+                forgotPasswordTokenRepository.doDeleteById(user.getId());
                 String token = UUID.randomUUID().toString();
                 ForgotPasswordToken forgotPasswordToken = new ForgotPasswordToken(token, user, new ForgotPasswordToken().calculateExpiryDate(new ForgotPasswordToken().getEXPIRATION()));
                 forgotPasswordTokenRepository.save(forgotPasswordToken);
@@ -116,7 +113,7 @@ public class ForgotPasswordDao {
                 PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
                 finalPassword=passwordEncoder.encode(password);
                 userRepository.doUpdatePassword(finalPassword,user.getId());
-                forgotPasswordTokenRepository.doDelete(token);
+                forgotPasswordTokenRepository.doDeleteByToken(token);
                 String messageActivationSuccess = messageSource.getMessage("reset.password.successful", null, locale);
                 return messageActivationSuccess;
             }
