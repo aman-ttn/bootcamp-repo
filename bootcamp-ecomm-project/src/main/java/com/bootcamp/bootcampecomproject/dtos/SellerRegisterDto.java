@@ -5,7 +5,7 @@ import com.bootcamp.bootcampecomproject.entities.ValidPassword;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
-public class SellerRegister {
+public class SellerRegisterDto {
     @Email
     private String email;
     @ValidPassword
@@ -45,7 +45,7 @@ public class SellerRegister {
         return gst;
     }
 
-    public SellerRegister(@Email String email,  String password, String gst, String companyName, @Pattern(regexp = "(^$|[0-9]{10})") String contactNumber) {
+    public SellerRegisterDto(@Email String email, String password, String gst, String companyName, @Pattern(regexp = "(^$|[0-9]{10})") String contactNumber) {
         this.email = email;
         this.password = password;
         this.gst = gst;

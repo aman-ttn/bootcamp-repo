@@ -18,4 +18,7 @@ public interface AddressRepository extends CrudRepository<Address,Long> {
 
     @Query(value = "select * from address where customer_user_id = :CustomerId and id = :Id",nativeQuery = true)
     public Address getAddressByCustomerAndAddressId(@Param("CustomerId")Long customerId,@Param("Id")Long id);
-    }
+
+    @Query(value = "select * from address where seller_user_id = :SellerId and id = :Id",nativeQuery = true)
+    public Address getAddressBySellerAndAddressId(@Param("SellerId")Long customerId,@Param("Id")Long id);
+}

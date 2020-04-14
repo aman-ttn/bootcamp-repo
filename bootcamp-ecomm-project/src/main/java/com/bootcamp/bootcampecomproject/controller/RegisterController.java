@@ -3,7 +3,7 @@ package com.bootcamp.bootcampecomproject.controller;
 import com.bootcamp.bootcampecomproject.dao.CustomerDao;
 import com.bootcamp.bootcampecomproject.dao.SellerDao;
 import com.bootcamp.bootcampecomproject.dtos.CustomerRegister;
-import com.bootcamp.bootcampecomproject.dtos.SellerRegister;
+import com.bootcamp.bootcampecomproject.dtos.SellerRegisterDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.validation.Valid;
-import java.util.Locale;
 
 @RestController
 @RequestMapping(value = "/register")
@@ -35,8 +34,8 @@ public class RegisterController {
     }
 
     @PostMapping("/seller")
-    public String sellerRegister(@Valid  @RequestBody SellerRegister sellerRegister,WebRequest webRequest){
-        return sellerDao.doRegister(sellerRegister,webRequest);
+    public String sellerRegister(@Valid  @RequestBody SellerRegisterDto sellerRegisterDto, WebRequest webRequest){
+        return sellerDao.doRegister(sellerRegisterDto,webRequest);
     }
 
 

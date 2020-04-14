@@ -24,7 +24,7 @@ public class Address {
     private Customer customer;
 
     @OneToOne
-    @JoinColumn(name="SellerId")
+    @JoinColumn(name="SellerUserId")
     private Seller seller;
 
 //    @ManyToOne

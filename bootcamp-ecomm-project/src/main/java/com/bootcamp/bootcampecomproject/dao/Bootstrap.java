@@ -71,7 +71,7 @@ public class Bootstrap implements ApplicationRunner {
             User user2 = new User();
             user2.setEmail("amansaini6162@gmail.com");
             user2.setPassword(passwordEncoder.encode("pass"));
-            user2.setRoles(Arrays.asList(new Role("ROLE_USER"),new Role("ROLE_ADMIN")));
+            user2.setRoles(Arrays.asList(new Role("ROLE_SELLER"),new Role("ROLE_ADMIN")));
             user2.setActive(true);
             Name name2=new Name();
             name2.setFirstName("Mohan");
