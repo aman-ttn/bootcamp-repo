@@ -224,35 +224,48 @@ public class CustomerDao {
             throw new UserNotFoundException("Address not found!");
         }
     }
-    public String updateAddress(HashMap<String,Object> addressDetails,Long addressId,HttpServletRequest httpServletRequest){
+    public String updateAddress(HashMap<String,Object> addressDetails,Long addressId,HttpServletRequest httpServletRequest) throws Exception {
         String email=getEmailbyToken(httpServletRequest);
         Long id=userRepository.findByEmail(email).getId();
         Address address=addressRepository.getAddressByCustomerAndAddressId(id,addressId);
-        if(address!=null){
-            String address1 = (String) addressDetails.get("address");
-            String city = (String) addressDetails.get("city");
-            String state = (String) addressDetails.get("state");
-            String country=(String) addressDetails.get("country");
-            Integer zipCode=(Integer) addressDetails.get("zipCode");
-            Label label=Label.valueOf((String) addressDetails.get("label"));
-            if(checkNull(address1))
-                address.setAddress(address1);
-            if (checkNull(city))
-                address.setCity(city);
-            if (checkNull(state))
-                address.setState(state);
-            if (checkNull(country))
-                address.setCountry(country);
-            if(zipCode!=null)
-                address.setZipCode(zipCode);
-            if(label!=null)
-                address.setLabel(label);
+        try {
+            if (address != null) {
 
-            addressRepository.save(address);
-            return "Address Updated Successfully";
+                System.out.println(address.getLabel() + "Updating-------");
+                String address1 = (String) addressDetails.get("address");
+                String city = (String) addressDetails.get("city");
+                String state = (String) addressDetails.get("state");
+                String country = (String) addressDetails.get("country");
+                Integer zipCode = (Integer) addressDetails.get("zipCode");
+                String stringLabel = (String) addressDetails.get("label");
+                Label label = null;
+                if (checkNull(stringLabel))
+                {
+                    label = Label.valueOf(stringLabel);
+                    address.setLabel(label);
+                }
+                System.out.println(address.getLabel() + "Label-------");
+                if (checkNull(address1))
+                    address.setAddress(address1);
+                if (checkNull(city))
+                    address.setCity(city);
+                if (checkNull(state))
+                    address.setState(state);
+                if (checkNull(country))
+                    address.setCountry(country);
+                if (zipCode != null)
+                    address.setZipCode(zipCode);
+
+                System.out.println(address.getLabel() + "Label-------");
+                addressRepository.save(address);
+                return "Address Updated Successfully";
+            } else {
+                throw new UserNotFoundException("Address Not Found Exception");
+            }
         }
-        else {
-            throw new UserNotFoundException("Address Not Found Exception");
+        catch (Exception e){
+            e.printStackTrace();
+            throw new Exception(e);
         }
     }
 }

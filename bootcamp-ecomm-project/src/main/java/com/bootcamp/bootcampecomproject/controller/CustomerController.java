@@ -46,7 +46,7 @@ public class CustomerController {
         return customerDao.deleteAddress(addressId,httpServletRequest);
     }
     @PutMapping(value = "/customer/updateAddress")
-    public String updateAddress(@RequestParam("addressId")Long id,@RequestBody HashMap<String,Object> map,HttpServletRequest httpServletRequest){
+    public String updateAddress(@RequestParam("addressId")Long id,@RequestBody HashMap<String,Object> map,HttpServletRequest httpServletRequest) throws Exception {
         return customerDao.updateAddress(map,id,httpServletRequest);
     }
 }

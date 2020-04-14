@@ -1,7 +1,6 @@
 package com.bootcamp.bootcampecomproject.config;
 
-import com.bootcamp.bootcampecomproject.listeners.AuthenticationFailureEventListener;
-import com.bootcamp.bootcampecomproject.listeners.AuthenticationSuccessEventListener;
+
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,18 +16,6 @@ public class AuthenticationManagerProvider extends WebSecurityConfigurerAdapter 
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-    @Bean
-    public ApplicationListener loginSuccessListener(){
-        return new AuthenticationSuccessEventListener();
-    }
 
-    @Bean
-    public ApplicationListener loginFailureListener(){
-        return new AuthenticationFailureEventListener();
-    }
-    @Bean
-    public RequestContextListener requestContextListener(){
-        return new RequestContextListener();
-    }
 
 }

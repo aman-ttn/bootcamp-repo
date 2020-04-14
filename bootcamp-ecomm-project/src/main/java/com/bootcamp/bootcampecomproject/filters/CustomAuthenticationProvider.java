@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class CustomFilter extends DaoAuthenticationProvider {
+public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
 
 //    @Override
 //    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

@@ -87,15 +87,15 @@ public class SellerDao {
             return messageRegSucc;
         }
     }
-    public List<SellerProfileDto> getProfile(HttpServletRequest httpServletRequest){
+    public SellerProfileDto getProfile(HttpServletRequest httpServletRequest){
         String email=getEmailbyToken(httpServletRequest);
         Long id=userRepository.findByEmail(email).getId();
-        List<SellerProfileDto> sellerProfileDtoList=new ArrayList<>();
+        SellerProfileDto sellerProfileDto=null;
         List<Object[]> sellerDetails=sellerRepository.getProfile(id);
         for (Object[] seller:sellerDetails) {
-            sellerProfileDtoList.add(new SellerProfileDto((BigInteger) seller[0],(String)seller[1],(String)seller[2],(String)seller[3],(Boolean) seller[4],(String)seller[5],(String)seller[6],(String)seller[7],(String)seller[8],(String)seller[9],(String)seller[10],(String)seller[11],(String)seller[12],(Integer)seller[13]));
+            sellerProfileDto=new SellerProfileDto((BigInteger) seller[0],(String)seller[1],(String)seller[2],(String)seller[3],(Boolean) seller[4],(String)seller[5],(String)seller[6],(String)seller[7],(String)seller[8],(String)seller[9],(String)seller[10],(String)seller[11],(String)seller[12],(Integer)seller[13]);
         }
-        return sellerProfileDtoList;
+        return sellerProfileDto;
     }
 
     private String getEmailbyToken(HttpServletRequest httpServletRequest){
@@ -159,7 +159,13 @@ public class SellerDao {
             String state = (String) addressDetails.get("state");
             String country=(String) addressDetails.get("country");
             Integer zipCode=(Integer) addressDetails.get("zipCode");
-            Label label=Label.valueOf((String) addressDetails.get("label"));
+            String stringLabel = (String) addressDetails.get("label");
+            Label label = null;
+            if (checkNull(stringLabel))
+            {
+                label = Label.valueOf(stringLabel);
+                address.setLabel(label);
+            }
             if(checkNull(address1))
                 address.setAddress(address1);
             if (checkNull(city))
@@ -170,9 +176,6 @@ public class SellerDao {
                 address.setCountry(country);
             if(zipCode!=null)
                 address.setZipCode(zipCode);
-            if(label!=null)
-                address.setLabel(label);
-
             addressRepository.save(address);
             return "Address Updated Successfully";
         }

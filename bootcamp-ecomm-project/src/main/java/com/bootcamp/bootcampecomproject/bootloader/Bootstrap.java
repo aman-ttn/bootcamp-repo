@@ -1,4 +1,4 @@
-package com.bootcamp.bootcampecomproject.dao;
+package com.bootcamp.bootcampecomproject.bootloader;
 
 
 import com.bootcamp.bootcampecomproject.entities.*;

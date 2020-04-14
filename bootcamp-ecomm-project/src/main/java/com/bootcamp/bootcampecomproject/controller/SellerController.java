@@ -22,7 +22,7 @@ public class SellerController {
     @Autowired
     private CustomerDao customerDao;
     @GetMapping(value = "/seller/profile")
-    public List<SellerProfileDto> getProfile(HttpServletRequest httpServletRequest){
+    public SellerProfileDto getProfile(HttpServletRequest httpServletRequest){
         return sellerDao.getProfile(httpServletRequest);
     }
     @PutMapping(value = "/seller/update")
