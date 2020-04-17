@@ -115,8 +115,9 @@ public class SellerDao {
         String companyName=(String) sellerDetails.get("companyName");
         String gst=(String) sellerDetails.get("gst");
 
-        if(!isGstValid(gst))
-            throw new GstException("Your gst number is not valid");
+        if (checkNull(gst))
+            if(!isGstValid(gst))
+                throw new GstException("Your gst number is not valid");
 
         if(checkNull(firstName))
             name.setFirstName(firstName);

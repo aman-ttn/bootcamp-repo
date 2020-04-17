@@ -3,17 +3,12 @@ package com.bootcamp.bootcampecomproject.controller;
 import com.bootcamp.bootcampecomproject.dao.CustomerDao;
 import com.bootcamp.bootcampecomproject.dao.SellerDao;
 import com.bootcamp.bootcampecomproject.dtos.SellerProfileDto;
-import com.bootcamp.bootcampecomproject.entities.Customer;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 
 @RestController
 public class SellerController {

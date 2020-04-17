@@ -18,6 +18,10 @@ public class Product {
     private String brand;
     private Boolean isActive;
 
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private Category category;
+
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     private List<ProductVariation> productVariationList;
 

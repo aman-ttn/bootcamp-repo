@@ -1,7 +1,6 @@
 package com.bootcamp.bootcampecomproject.entities;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Seller {

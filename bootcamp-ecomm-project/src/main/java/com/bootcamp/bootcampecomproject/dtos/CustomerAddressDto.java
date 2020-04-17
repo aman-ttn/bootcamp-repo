@@ -2,6 +2,9 @@ package com.bootcamp.bootcampecomproject.dtos;
 
 import com.bootcamp.bootcampecomproject.entities.Label;
 
+import javax.persistence.AttributeConverter;
+import java.util.Map;
+
 public class CustomerAddressDto {
     private String city;
     private String state;

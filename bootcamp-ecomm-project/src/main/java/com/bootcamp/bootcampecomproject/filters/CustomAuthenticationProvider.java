@@ -72,7 +72,7 @@ public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
             String email=authentication.getName();
             userAttemptsDao.getUserAttemps(email);
             userAttemptsDao.updateAttempts(email);
-            throw new UserNotFoundException("User is invalid");
+            throw e;
         }
         return null;
     }

@@ -3,23 +3,18 @@ package com.bootcamp.bootcampecomproject.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Set;
 
 @Entity
-public class Category {
+public class CategoryMetadataField {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     @Column(unique = true)
-    private String categoryName;
-    private Long parentId;
+    private String name;
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "categoryMetadataField",cascade = CascadeType.ALL)
     private List<CategoryMetadataFieldValue> categoryMetadataFieldValueList;
-
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
-    private Set<Product> productSet;
 
     public Long getId() {
         return id;
@@ -29,20 +24,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<CategoryMetadataFieldValue> getCategoryMetadataFieldValueList() {
@@ -53,11 +40,11 @@ public class Category {
         this.categoryMetadataFieldValueList = categoryMetadataFieldValueList;
     }
 
-    public Set<Product> getProductSet() {
-        return productSet;
-    }
-
-    public void setProductSet(Set<Product> productSet) {
-        this.productSet = productSet;
+    @Override
+    public String toString() {
+        return "CategoryMetadataField{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

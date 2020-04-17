@@ -1,9 +1,6 @@
 package com.bootcamp.bootcampecomproject.entities;
 
-import org.springframework.data.jpa.repository.Modifying;
-
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Entity
