@@ -231,7 +231,6 @@ public class CustomerDao {
         try {
             if (address != null) {
 
-                System.out.println(address.getLabel() + "Updating-------");
                 String address1 = (String) addressDetails.get("address");
                 String city = (String) addressDetails.get("city");
                 String state = (String) addressDetails.get("state");

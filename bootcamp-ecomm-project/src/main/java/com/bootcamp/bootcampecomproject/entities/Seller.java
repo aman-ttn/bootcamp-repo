@@ -1,6 +1,7 @@
 package com.bootcamp.bootcampecomproject.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Seller {
@@ -24,8 +25,8 @@ public class Seller {
     private Address address;
 
 
-    @OneToOne(mappedBy = "seller",cascade = CascadeType.ALL)
-    private Product product;
+    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
+    private List<Product> product;
 
     public String getGst() {
         return gst;
@@ -73,11 +74,11 @@ public class Seller {
         this.address = address;
     }
 
-    public Product getProduct() {
+    public List<Product> getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(List<Product> product) {
         this.product = product;
     }
 }

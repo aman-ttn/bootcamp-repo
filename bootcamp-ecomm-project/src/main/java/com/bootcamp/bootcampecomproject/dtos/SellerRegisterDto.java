@@ -65,12 +65,13 @@ public class SellerRegisterDto {
         this.companyName = companyName;
     }
 }
-// 1)-First 2 digits of the GST Number will represent State Code as per the Census (2011).
-// 2)-Next 10 digits will be same as in the PAN number of the taxpayer.
-//        *-First five will be alphabets
-//        *-Next four will be numbers
-//        *-Last will be check code
-// 3)-The 13th digit will be the number of registration you take within a state i.e. after 9, A to Z is considered as 10 to 35 .
-// 4)-14th digit will be Z by default.
-// 5)-Last would be the check code.
-// 27AAPFU0939F1ZV -Smaple data
+/* 1)-First 2 digits of the GST Number will represent State Code as per the Census (2011).
+ 2)-Next 10 digits will be same as in the PAN number of the taxpayer.
+        *-First five will be alphabets
+        *-Next four will be numbers
+        *-Last will be check code
+ 3)-The 13th digit will be the number of registration you take within a state i.e. after 9, A to Z is considered as 10 to 35 .
+ 4)-14th digit will be Z by default.
+ 5)-Last would be the check code.
+ 27AAPFU0939F1ZV -Smaple data
+*/

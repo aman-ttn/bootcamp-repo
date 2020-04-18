@@ -1,29 +1,35 @@
 package com.bootcamp.bootcampecomproject.dtos;
 
-import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 public class OneCategoryDto {
     private Long id;
-    private List<String> categories;
+    private String categoryName;
+    private List<String> parentCategories;
     private String childCategory;
 
     public Long getId() {
         return id;
     }
 
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public List<String> getCategories() {
-        return categories;
+    public List<String> getParentCategories() {
+        return parentCategories;
     }
 
-    public void setCategories(List<String> categories) {
-        this.categories = categories;
+    public void setParentCategories(List<String> parentCategories) {
+        this.parentCategories = parentCategories;
     }
 
     public String getChildCategory() {

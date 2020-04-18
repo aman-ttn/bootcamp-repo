@@ -2,7 +2,9 @@ package com.bootcamp.bootcampecomproject.repositories;
 
 import com.bootcamp.bootcampecomproject.entities.Category;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -12,4 +14,14 @@ public interface CategoryRepository extends CrudRepository<Category,Long> {
     List<Category> findByParentId(Long id);
 
     List<Category> findAll(Pageable pageable);
+    List<Category> findAll();
+
+    @Query(value = "select * from category where id not in (select id from category where id in (select parent_id from category))",nativeQuery = true)
+    List<Category> getLeafCategory(Pageable pageable);
+
+    @Query(value = "select f.name,v.value from category_metadata_field_value v inner join category_metadata_field f on v.category_metadata_field_id =f.id where category_id= :Id",nativeQuery = true)
+    List<Object[]> getMetadataByCategoryId(@Param("Id")Long id);
+
+    @Query(value = "select * from category where parent_id is null",nativeQuery = true)
+    List<Category> getRootParent();
 }

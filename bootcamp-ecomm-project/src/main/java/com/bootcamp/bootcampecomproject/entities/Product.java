@@ -8,7 +8,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+
+    @ManyToOne
     @JoinColumn(name="sellerUserId")
     private Seller seller;
     private String name;
@@ -16,7 +17,7 @@ public class Product {
     private Boolean isCancellable;
     private Boolean isReturnable;
     private String brand;
-    private Boolean isActive;
+    private Boolean isActive=false;
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
@@ -90,5 +91,29 @@ public class Product {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<ProductVariation> getProductVariationList() {
+        return productVariationList;
+    }
+
+    public void setProductVariationList(List<ProductVariation> productVariationList) {
+        this.productVariationList = productVariationList;
+    }
+
+    public List<ProductReview> getProductReviews() {
+        return productReviews;
+    }
+
+    public void setProductReviews(List<ProductReview> productReviews) {
+        this.productReviews = productReviews;
     }
 }

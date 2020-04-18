@@ -51,6 +51,8 @@ public class User {
 
     public Long getId() { return id; }
 
+    public void setId(Long id) { this.id = id; }
+
     public String getImagePath() {
         return imagePath;
     }
@@ -59,7 +61,7 @@ public class User {
         this.imagePath = imagePath;
     }
 
-    public void setId(Long id) { this.id = id; }
+
 
     public List<Role> getRoles() {
         return roles;

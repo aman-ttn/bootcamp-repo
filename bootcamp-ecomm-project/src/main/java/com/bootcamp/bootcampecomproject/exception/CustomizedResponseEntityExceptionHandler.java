@@ -48,7 +48,12 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         return new ResponseEntity<>(exceptionResponse,HttpStatus.CONFLICT);
     }
     @ExceptionHandler(CategoryException.class)
-    public final ResponseEntity<Object> categoryAlreadyExistException(Exception ex,WebRequest request){
+    public final ResponseEntity<Object> categoryException(Exception ex,WebRequest request){
+        ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse,HttpStatus.CONFLICT);
+    }
+    @ExceptionHandler(ProductException.class)
+    public final ResponseEntity<Object> productException(Exception ex,WebRequest request){
         ExceptionResponse exceptionResponse=new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse,HttpStatus.CONFLICT);
     }

@@ -1,7 +1,9 @@
 package com.bootcamp.bootcampecomproject.controller;
 
+import com.bootcamp.bootcampecomproject.dao.CategoryDao;
 import com.bootcamp.bootcampecomproject.dao.CustomerDao;
 import com.bootcamp.bootcampecomproject.dao.ForgotPasswordDao;
+import com.bootcamp.bootcampecomproject.dtos.CategoryDto;
 import com.bootcamp.bootcampecomproject.dtos.CustomerAddressDto;
 import com.bootcamp.bootcampecomproject.dtos.CustomerProfileDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class CustomerController {
     private CustomerDao customerDao;
     @Autowired
     private ForgotPasswordDao forgotPasswordDao;
+    @Autowired
+    private CategoryDao categoryDao;
     @GetMapping(value="/customer/profile")
     public CustomerProfileDto viewProfile(HttpServletRequest httpServletRequest){
         return customerDao.getProfile(httpServletRequest);
@@ -48,5 +52,9 @@ public class CustomerController {
     @PutMapping(value = "/customer/updateAddress")
     public String updateAddress(@RequestParam("addressId")Long id,@RequestBody HashMap<String,Object> map,HttpServletRequest httpServletRequest) throws Exception {
         return customerDao.updateAddress(map,id,httpServletRequest);
+    }
+    @GetMapping(value = "/customer/getAllCategories")
+    public List<CategoryDto> getAllCategory(@RequestParam("CategoryId")Long id){
+        return categoryDao.getAllCategoriesCustomer(id);
     }
 }
