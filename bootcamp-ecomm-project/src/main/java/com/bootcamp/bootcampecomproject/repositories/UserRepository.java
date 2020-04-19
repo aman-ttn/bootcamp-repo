@@ -30,10 +30,8 @@ public interface UserRepository extends CrudRepository<User,Long> {
     @Query(value="update user set password = :Password where id= :Id",nativeQuery = true)
     public void doUpdatePassword(@Param("Password") String password, @Param("Id")Long id);
 
-//    @Transactional
-//    @Modifying
-//    @Query(value="update user set first_name = :FirstName where id= :Id",nativeQuery = true)
-//    public void doUpdateFirstName(@Param("Id")Long id,@Param("FirstName")String firstName);
+    @Query(value = "select * from user where id in (select user_id from user_role u inner join role r on u.role_id=r.id where authority='ROLE_ADMIN')",nativeQuery = true)
+    List<User> getUserAdmin();
 
 
 }

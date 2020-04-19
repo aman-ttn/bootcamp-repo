@@ -93,15 +93,32 @@ public class Bootstrap implements ApplicationRunner {
             address2.setLabel(Label.home);
             address2.setSeller(seller);
 
-
-
-
             seller.setUser(user2);
             seller.setAddress(address2);
             sellerRepository.save(seller);
 
+            User user3 = new User();
+            user3.setEmail("amansaini.mail@gmail.com");
+            user3.setPassword(passwordEncoder.encode("pass"));
+            user3.setRoles(Arrays.asList(new Role("ROLE_SELLER")));
+            user3.setActive(true);
+            Name name3=new Name();
+            name3.setFirstName("Ajay");
+            name3.setMiddleName("");
+            name3.setLastName("Sharma");
+            user3.setName(name3);
+            user3.setActive(true);
+            Seller seller3=new Seller();
+            seller3.setCompanyName("Amazon");
+            seller3.setGst("23AAPFU0939F1ZV");
+            seller3.setCompanyContact("Delhi");
+            seller3.setUser(user3);
+            sellerRepository.save(seller3);
+
+
             userRepository.save(user1);
             userRepository.save(user2);
+            userRepository.save(user3);
             System.out.println("Total users saved::"+userRepository.count());
         }
     }

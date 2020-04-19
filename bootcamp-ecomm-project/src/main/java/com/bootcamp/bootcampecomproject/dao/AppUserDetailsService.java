@@ -15,8 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @Service
 public class AppUserDetailsService implements UserDetailsService {
 
-    @Autowired
-    private LoginAttemptService loginAttemptService;
+
 
     @Autowired
     private HttpServletRequest request;
@@ -26,9 +25,6 @@ public class AppUserDetailsService implements UserDetailsService {
 
     @Autowired
     UserDao userDao;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

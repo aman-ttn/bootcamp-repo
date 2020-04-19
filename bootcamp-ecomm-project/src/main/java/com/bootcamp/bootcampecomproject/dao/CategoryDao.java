@@ -297,8 +297,4 @@ public class CategoryDao {
         return allCategories;
 
     }
-
-
-
-
 }

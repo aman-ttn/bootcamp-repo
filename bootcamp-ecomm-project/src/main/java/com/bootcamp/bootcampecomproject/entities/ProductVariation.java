@@ -1,6 +1,9 @@
 package com.bootcamp.bootcampecomproject.entities;
 
+import com.bootcamp.bootcampecomproject.utils.HashMapConverter;
+
 import javax.persistence.*;
+import java.util.Map;
 
 @Entity
 public class ProductVariation {
@@ -13,13 +16,12 @@ public class ProductVariation {
     private Integer quantityAvailable;
     private Double price;
 
-    private String productAttributesJSON;
-
-//    @Convert(converter = HashMapConverter.class)
-//    private Map<String, Object> productAttributes;
+    @Convert(converter = HashMapConverter.class)
+    private Map<String, String> productAttributes;
 
     private String primaryImageName;
-    private Boolean isActive;
+    private String secondaryImageName;
+    private Boolean isActive=true;
 
 
 
@@ -65,6 +67,14 @@ public class ProductVariation {
         this.primaryImageName = primaryImageName;
     }
 
+    public String getSecondaryImageName() {
+        return secondaryImageName;
+    }
+
+    public void setSecondaryImageName(String secondaryImageName) {
+        this.secondaryImageName = secondaryImageName;
+    }
+
     public Boolean getActive() {
         return isActive;
     }
@@ -73,21 +83,15 @@ public class ProductVariation {
         isActive = active;
     }
 
-    public String getProductAttributesJSON() {
-        return productAttributesJSON;
+
+
+    public Map<String, String> getProductAttributes() {
+        return productAttributes;
     }
 
-    public void setProductAttributesJSON(String productAttributesJSON) {
-        this.productAttributesJSON = productAttributesJSON;
+    public void setProductAttributes(Map<String, String> productAttributes) {
+        this.productAttributes = productAttributes;
     }
-
-//    public Map<String, Object> getProductAttributes() {
-//        return productAttributes;
-//    }
-//
-//    public void setProductAttributes(Map<String, Object> productAttributes) {
-//        this.productAttributes = productAttributes;
-//    }
 
 //    public ObjectMapper getObjectMapper() {
 //        return objectMapper;

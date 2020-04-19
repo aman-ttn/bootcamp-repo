@@ -2,6 +2,7 @@ package com.bootcamp.bootcampecomproject.controller;
 
 import com.bootcamp.bootcampecomproject.dao.AdminDao;
 import com.bootcamp.bootcampecomproject.dao.CategoryDao;
+import com.bootcamp.bootcampecomproject.dao.ProductDao;
 import com.bootcamp.bootcampecomproject.dtos.CategoryMetadataFieldValuesDto;
 import com.bootcamp.bootcampecomproject.dtos.FindAllCustomerDto;
 import com.bootcamp.bootcampecomproject.dtos.FindAllSellerDto;
@@ -21,6 +22,8 @@ public class AdminController {
     private AdminDao adminDao;
     @Autowired
     private CategoryDao categoryDao;
+    @Autowired
+    private ProductDao productDao;
     @GetMapping("/customers")
     public List<FindAllCustomerDto> getAllCustomers(
             @RequestParam(defaultValue = "10") String pageSize,
@@ -99,5 +102,9 @@ public class AdminController {
     @PutMapping(value = "/updateCategoryMetadataFieldValue")
     public String updateCategoryMetadataFieldValue(@RequestBody CategoryMetadataFieldValuesDto categoryMetadataFieldValuesDto){
         return categoryDao.updateCategoryMetadataValues(categoryMetadataFieldValuesDto);
+    }
+    @PutMapping(value = "/activateProduct")
+    public String actvateProduct(@RequestParam("id")Long id,WebRequest webRequest){
+        return productDao.activateProduct(id,webRequest);
     }
 }
