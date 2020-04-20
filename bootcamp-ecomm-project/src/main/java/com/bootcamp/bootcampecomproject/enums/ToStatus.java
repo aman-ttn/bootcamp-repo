@@ -1,17 +1,17 @@
-package com.bootcamp.bootcampecomproject.entities;
+package com.bootcamp.bootcampecomproject.enums;
 
-public enum FromStatus {
-    ORDER_PLACED,
+public enum  ToStatus {
     CANCELLED,
-    ORDER_REJECTED,
     ORDER_CONFIRMED,
+    ORDER_REJECTED,
+    REFUND_INITIATED,
     ORDER_SHIPPED,
     DELIVERED,
     RETURN_REQUESTED,
+    CLOSED,
     RETURN_REJECTED,
     RETURN_APPROVED,
     PICK_UP_INITIATED,
     PICK_UP_COMPLETED,
-    REFUND_INITIATED,
     REFUND_COMPLETED
 }

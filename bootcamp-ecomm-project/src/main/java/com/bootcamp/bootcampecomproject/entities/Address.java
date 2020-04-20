@@ -2,9 +2,7 @@ package com.bootcamp.bootcampecomproject.entities;
 
 import javax.persistence.*;
 
-//@SecondaryTable(name="order",pkJoinColumns = @PrimaryKeyJoinColumn(name = "customerUserId",referencedColumnName = "id"))
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@MappedSuperclass
+
 @Entity
 public class Address {
     @Id

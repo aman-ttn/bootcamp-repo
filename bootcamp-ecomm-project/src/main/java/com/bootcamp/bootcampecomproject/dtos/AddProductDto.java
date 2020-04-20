@@ -1,12 +1,17 @@
 package com.bootcamp.bootcampecomproject.dtos;
 
+import javax.validation.constraints.NotNull;
+
 public class AddProductDto {
+    @NotNull
     private String name;
+    @NotNull
     private String brand;
+    @NotNull
     private Long categoryId;
     private String description;
-    private Boolean isCancellable=false;
-    private Boolean isReturnable=false;
+    private Boolean isCancellable;
+    private Boolean isReturnable;
 
     public AddProductDto(String name, String brand, Long categoryId, String description, Boolean isCancellable, Boolean isReturnable) {
         this.name = name;

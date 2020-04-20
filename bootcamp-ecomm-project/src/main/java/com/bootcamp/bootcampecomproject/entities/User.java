@@ -33,8 +33,7 @@ public class User {
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Customer customer;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-    private Admin admin;
+
 
 
 
@@ -100,13 +99,7 @@ public class User {
         return name;
     }
 
-    public Admin getAdmin() {
-        return admin;
-    }
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
-    }
 
     @Override
     public String toString() {
@@ -121,7 +114,6 @@ public class User {
                 ", roles=" + roles +
                 ", seller=" + seller +
                 ", customer=" + customer +
-                ", admin=" + admin +
                 '}';
     }
 

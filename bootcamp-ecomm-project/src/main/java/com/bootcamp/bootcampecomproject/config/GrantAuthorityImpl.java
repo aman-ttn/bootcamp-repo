@@ -1,4 +1,4 @@
-package com.bootcamp.bootcampecomproject;
+package com.bootcamp.bootcampecomproject.config;
 
 import org.springframework.security.core.GrantedAuthority;
 

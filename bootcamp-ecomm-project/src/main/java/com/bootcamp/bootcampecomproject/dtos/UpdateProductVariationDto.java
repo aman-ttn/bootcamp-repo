@@ -3,20 +3,20 @@ package com.bootcamp.bootcampecomproject.dtos;
 import javax.validation.constraints.NotNull;
 import java.util.Map;
 
-public class AddProductVariationDto {
+public class UpdateProductVariationDto {
     @NotNull
-    private Long productId;
-    @NotNull
+    private Long productVariationId;
     private Map<String,String> metadata;
     private Integer quantityAvailable;
     private Double price;
+    private Boolean isActive;
 
-    public Long getProductId() {
-        return productId;
+    public Long getProductVariationId() {
+        return productVariationId;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProductVariationId(Long productVariationId) {
+        this.productVariationId = productVariationId;
     }
 
     public Map<String, String> getMetadata() {
@@ -41,5 +41,13 @@ public class AddProductVariationDto {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

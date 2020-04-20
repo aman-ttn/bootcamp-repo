@@ -1,6 +1,7 @@
 package com.bootcamp.bootcampecomproject.dao;
 
 import com.bootcamp.bootcampecomproject.dtos.CategoryDto;
+import com.bootcamp.bootcampecomproject.dtos.CategoryFilteringDto;
 import com.bootcamp.bootcampecomproject.dtos.CategoryMetadataFieldValuesDto;
 import com.bootcamp.bootcampecomproject.dtos.OneCategoryDto;
 import com.bootcamp.bootcampecomproject.dtos.categorySeller.CategoryMetadataDto;
@@ -8,10 +9,13 @@ import com.bootcamp.bootcampecomproject.dtos.categorySeller.CategorySellerDto;
 import com.bootcamp.bootcampecomproject.entities.Category;
 import com.bootcamp.bootcampecomproject.entities.CategoryMetadataField;
 import com.bootcamp.bootcampecomproject.entities.CategoryMetadataFieldValue;
+import com.bootcamp.bootcampecomproject.entities.Product;
 import com.bootcamp.bootcampecomproject.exception.CategoryException;
+import com.bootcamp.bootcampecomproject.exception.CustomException;
 import com.bootcamp.bootcampecomproject.repositories.CategoryMetadataFieldRepository;
 import com.bootcamp.bootcampecomproject.repositories.CategoryMetadataFieldValueRepository;
 import com.bootcamp.bootcampecomproject.repositories.CategoryRepository;
+import com.bootcamp.bootcampecomproject.repositories.ProductRepository;
 import com.bootcamp.bootcampecomproject.utils.CategoryMetadataFieldValuesId;
 import com.bootcamp.bootcampecomproject.utils.SetConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +35,8 @@ public class CategoryDao {
     private CategoryMetadataFieldValueRepository categoryMetadataFieldValueRepository;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     public String addMetadataField(String fieldName, WebRequest webRequest){
         if (fieldName==null || fieldName==""){
@@ -161,7 +167,7 @@ public class CategoryDao {
             throw new CategoryException("This category doesn't exist");
         }
     }
-    public String updateCategory(java.lang.Long id, String categoryName){
+    public String updateCategory(Long id, String categoryName){
         Category category=categoryRepository.findByid(id);
         if (category!=null){
             if (categoryRepository.findBycategoryName(categoryName)==null){
@@ -296,5 +302,28 @@ public class CategoryDao {
         }
         return allCategories;
 
+    }
+    public CategoryFilteringDto getCategoryDetails(Long categoryId, WebRequest webRequest){
+        Optional<Category> categoryOptional=categoryRepository.findById(categoryId);
+        if (!categoryOptional.isPresent()){
+            String message="Category Id is Invalid";
+            throw new CustomException(message);
+        }
+        CategoryFilteringDto categoryFilteringDto=new CategoryFilteringDto();
+        Set<String> brands=new HashSet<>();
+        List<Product> products=productRepository.getByCategoryId(categoryId);
+        products.forEach(product -> {
+            brands.add(product.getBrand());
+        });
+        List<CategoryMetadataDto> categoryMetadataDtoList=new ArrayList<>();
+        List<Object[]> metadataList=categoryRepository.getMetadataByCategoryId(categoryId);
+        for (Object[] metadata:metadataList) {
+            CategoryMetadataDto categoryMetadataDto=new CategoryMetadataDto((String) metadata[0],(String) metadata[1]);
+            categoryMetadataDtoList.add(categoryMetadataDto);
+        }
+        categoryFilteringDto.setCategoryName(categoryOptional.get().getCategoryName());
+        categoryFilteringDto.setCategoryMetadataDto(categoryMetadataDtoList);
+        categoryFilteringDto.setBrandList(brands);
+        return categoryFilteringDto;
     }
 }

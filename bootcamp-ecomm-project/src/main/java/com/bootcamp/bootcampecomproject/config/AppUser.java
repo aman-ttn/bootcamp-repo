@@ -1,6 +1,6 @@
-package com.bootcamp.bootcampecomproject.entities;
+package com.bootcamp.bootcampecomproject.config;
 
-import com.bootcamp.bootcampecomproject.GrantAuthorityImpl;
+import com.bootcamp.bootcampecomproject.config.GrantAuthorityImpl;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

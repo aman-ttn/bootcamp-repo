@@ -1,7 +1,7 @@
 package com.bootcamp.bootcampecomproject.dao;
 
-import com.bootcamp.bootcampecomproject.GrantAuthorityImpl;
-import com.bootcamp.bootcampecomproject.entities.AppUser;
+import com.bootcamp.bootcampecomproject.config.GrantAuthorityImpl;
+import com.bootcamp.bootcampecomproject.config.AppUser;
 import com.bootcamp.bootcampecomproject.entities.Role;
 import com.bootcamp.bootcampecomproject.entities.User;
 import com.bootcamp.bootcampecomproject.repositories.UserRepository;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Repository

@@ -26,18 +26,7 @@ import java.util.Iterator;
 
 public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
 
-//    @Override
-//    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-//        System.out.println("Filter is running");
-//        chain.doFilter(request,response);
-//    }
-
-//    @Override
-//    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
-//        return null;
-//    }
-
-    @Autowired
+@Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -77,7 +66,5 @@ public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
         return null;
     }
 
-//    public CustomFilter(String url, AuthenticationManager authenticationManager){
-//        super(new AntPathRequestMatcher(url,HttpMethod.POST.name()));
-//    }
+
 }

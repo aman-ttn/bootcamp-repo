@@ -66,6 +66,10 @@ public class CustomerDao {
             name.setLastName(customerRegister.getLastName());
             user.setName(name);
             user.setActive(false);
+            if (customerRegister.getConfirmPassword().equals(customerRegister.getPassword())){
+                String passwordMismatch=messageSource.getMessage("exception.passwordmismatch",null,locale);
+                throw new CustomException(passwordMismatch);
+            }
             user.setPassword(passwordEncoder.encode(customerRegister.getPassword()));
             user.setRoles(Arrays.asList(new Role("ROLE_CUSTOMER")));
 

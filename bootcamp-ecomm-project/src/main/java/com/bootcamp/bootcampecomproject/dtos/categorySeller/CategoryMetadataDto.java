@@ -26,4 +26,7 @@ public class CategoryMetadataDto {
         this.metadataField = metadataField;
         this.metadataFieldValues = metadataFieldValues;
     }
+
+    public CategoryMetadataDto() {
+    }
 }

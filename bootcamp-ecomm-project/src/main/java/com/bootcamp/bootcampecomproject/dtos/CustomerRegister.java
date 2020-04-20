@@ -4,27 +4,35 @@ package com.bootcamp.bootcampecomproject.dtos;
 import com.bootcamp.bootcampecomproject.entities.ValidPassword;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 public class CustomerRegister {
 
     @Email
     private String email;
+    @NotNull
     private String firstName;
     private String middleName;
+    @NotNull
     private String lastName;
     @Pattern(regexp="(^$|[0-9]{10})",message = "Only 10 digit Contact Number is allowed")
     private String contactNumber;
+    @NotNull
     @ValidPassword
     private String password;
+    @NotNull
+    @ValidPassword
+    private String confirmPassword;
 
-    public CustomerRegister(@Email String email, String firstName, String middleName, String lastName, @Pattern(regexp = "(^$|[0-9]{10})") String contactNumber, String password) {
+    public CustomerRegister(@Email String email, String firstName, String middleName, String lastName, @Pattern(regexp = "(^$|[0-9]{10})", message = "Only 10 digit Contact Number is allowed") String contactNumber, String password, String confirmPassword) {
         this.email = email;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.contactNumber = contactNumber;
         this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public String getEmail() {
@@ -76,4 +84,11 @@ public class CustomerRegister {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 }

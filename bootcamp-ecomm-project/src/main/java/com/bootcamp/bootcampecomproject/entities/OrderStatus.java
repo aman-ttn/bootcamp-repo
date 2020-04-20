@@ -1,5 +1,8 @@
 package com.bootcamp.bootcampecomproject.entities;
 
+import com.bootcamp.bootcampecomproject.enums.FromStatus;
+import com.bootcamp.bootcampecomproject.enums.ToStatus;
+
 import javax.persistence.*;
 
 @Entity

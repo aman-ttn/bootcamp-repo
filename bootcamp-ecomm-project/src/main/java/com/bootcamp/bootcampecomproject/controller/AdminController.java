@@ -3,10 +3,7 @@ package com.bootcamp.bootcampecomproject.controller;
 import com.bootcamp.bootcampecomproject.dao.AdminDao;
 import com.bootcamp.bootcampecomproject.dao.CategoryDao;
 import com.bootcamp.bootcampecomproject.dao.ProductDao;
-import com.bootcamp.bootcampecomproject.dtos.CategoryMetadataFieldValuesDto;
-import com.bootcamp.bootcampecomproject.dtos.FindAllCustomerDto;
-import com.bootcamp.bootcampecomproject.dtos.FindAllSellerDto;
-import com.bootcamp.bootcampecomproject.dtos.OneCategoryDto;
+import com.bootcamp.bootcampecomproject.dtos.*;
 import com.bootcamp.bootcampecomproject.entities.CategoryMetadataField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -107,4 +104,22 @@ public class AdminController {
     public String actvateProduct(@RequestParam("id")Long id,WebRequest webRequest){
         return productDao.activateProduct(id,webRequest);
     }
+    @PutMapping(value = "/deactivateProduct")
+    public String deactvateProduct(@RequestParam("id")Long id,WebRequest webRequest){
+        return productDao.deactivateProduct(id,webRequest);
+    }
+    @GetMapping(value = "/getProduct")
+    public ProductDto getProduct(@RequestParam("ProductId")Long id, WebRequest webRequest){
+        return productDao.getAdminProduct(id,webRequest);
+    }
+    @GetMapping(value = "/getAllProduct")
+    public List<ViewAllProductDto> getAllProduct(
+            @RequestParam(defaultValue = "10") String pageSize,
+            @RequestParam(defaultValue = "0") String pageOffset,
+            @RequestParam(defaultValue ="id")String sortByField,
+            @RequestParam(defaultValue = "asc")String order
+    ){
+        return productDao.geAllProductAdmin(pageSize,pageOffset,sortByField,order);
+    }
+
 }

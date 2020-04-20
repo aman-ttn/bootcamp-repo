@@ -1,21 +1,28 @@
 package com.bootcamp.bootcampecomproject.dtos;
 
+import com.bootcamp.bootcampecomproject.entities.Address;
 import com.bootcamp.bootcampecomproject.entities.ValidPassword;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 public class SellerRegisterDto {
+    @NotNull
     @Email
     private String email;
+    @NotNull
     @ValidPassword
     private String password;
+    @NotNull
     @Pattern(regexp="(\\d{2}[A-Z]{5}\\d{4}[A-Z]{1}[A-Z\\d]{1}[Z]{1}[A-Z\\d]{1})")
     private String gst;
+    @NotNull
     private String companyName;
 
     @Pattern(regexp="(^$|[0-9]{10})")
     private String contactNumber;
+
 
     public String getContactNumber() {
         return contactNumber;

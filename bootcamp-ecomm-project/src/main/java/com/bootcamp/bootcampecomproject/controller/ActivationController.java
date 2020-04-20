@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.validation.constraints.NotNull;
+
 
 @RestController
 public class ActivationController {
@@ -16,7 +18,7 @@ public class ActivationController {
     private ActivationDao activationDao;
 
     @GetMapping("/registrationConfirm")
-    public String confirmRegistration(WebRequest request, @RequestParam("token") String token) {
+    public String confirmRegistration(WebRequest request,@NotNull @RequestParam("token") String token) {
         return activationDao.doActivate(token,request);
     }
 

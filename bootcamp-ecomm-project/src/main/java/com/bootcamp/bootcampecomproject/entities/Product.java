@@ -14,8 +14,8 @@ public class Product {
     private Seller seller;
     private String name;
     private String description;
-    private Boolean isCancellable;
-    private Boolean isReturnable;
+    private Boolean isCancellable=false;
+    private Boolean isReturnable=false;
     private Boolean isDeleted=false;
     private String brand;
     private Boolean isActive=false;

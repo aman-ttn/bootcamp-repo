@@ -3,9 +3,9 @@ package com.bootcamp.bootcampecomproject.controller;
 import com.bootcamp.bootcampecomproject.dao.CategoryDao;
 import com.bootcamp.bootcampecomproject.dao.CustomerDao;
 import com.bootcamp.bootcampecomproject.dao.ForgotPasswordDao;
-import com.bootcamp.bootcampecomproject.dtos.CategoryDto;
-import com.bootcamp.bootcampecomproject.dtos.CustomerAddressDto;
-import com.bootcamp.bootcampecomproject.dtos.CustomerProfileDto;
+import com.bootcamp.bootcampecomproject.dao.ProductDao;
+import com.bootcamp.bootcampecomproject.dtos.*;
+import com.bootcamp.bootcampecomproject.dtos.categorySeller.CategoryMetadataDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +24,9 @@ public class CustomerController {
     private ForgotPasswordDao forgotPasswordDao;
     @Autowired
     private CategoryDao categoryDao;
+
+    @Autowired
+    private ProductDao productDao;
     @GetMapping(value="/customer/profile")
     public CustomerProfileDto viewProfile(HttpServletRequest httpServletRequest){
         return customerDao.getProfile(httpServletRequest);
@@ -56,5 +59,35 @@ public class CustomerController {
     @GetMapping(value = "/customer/getAllCategories")
     public List<CategoryDto> getAllCategory(@RequestParam("CategoryId")Long id){
         return categoryDao.getAllCategoriesCustomer(id);
+    }
+    @GetMapping(value = "/customer/getProduct")
+    public ProductDto getProduct(@RequestParam("ProductId")Long id, WebRequest webRequest){
+        return productDao.getCustomerProduct(id,webRequest);
+    }
+    @GetMapping(value = "/customer/getAllProduct")
+    public List<ViewAllProductDto> getAllProduct(
+            @RequestParam(defaultValue = "10") String pageSize,
+            @RequestParam(defaultValue = "0") String pageOffset,
+            @RequestParam(defaultValue ="id")String sortByField,
+            @RequestParam(defaultValue = "asc")String order,
+            @RequestParam("CategoryId")Long id,
+            WebRequest webRequest
+    ){
+        return productDao.getAllProductCustomer(pageSize,pageOffset,sortByField,order,id,webRequest);
+    }
+    @GetMapping(value = "/customer/getSimilarProduct")
+    public List<ViewAllProductDto> getSimilarProduct(
+            @RequestParam(defaultValue = "10") String pageSize,
+            @RequestParam(defaultValue = "0") String pageOffset,
+            @RequestParam(defaultValue ="id")String sortByField,
+            @RequestParam(defaultValue = "asc")String order,
+            @RequestParam("ProductId")Long id,
+            WebRequest webRequest
+    ){
+        return productDao.getSimilarProducts(pageSize,pageOffset,sortByField,order,id,webRequest);
+    }
+    @GetMapping(value = "/customer/categoryDetail")
+    public CategoryFilteringDto getCategoryDetails(@RequestParam("CategoryId")Long id,WebRequest webRequest){
+        return categoryDao.getCategoryDetails(id,webRequest);
     }
 }
